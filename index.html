@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Htet Aung - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a2e; /* Dark background */
+            color: #e0e0e0; /* Light text */
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        .header-nav-link {
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .header-nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #00bcd4; /* Cyan underline */
+            transition: width 0.3s ease;
+        }
+
+        .header-nav-link:hover::after,
+        .header-nav-link.active::after {
+            width: 100%;
+        }
+
+        .social-icon {
+            background-color: #2e3a51; /* Darker blue-gray */
+            border: 1px solid #00bcd4; /* Cyan border */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 48px;
+            height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            font-size: 1.25rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .social-icon:hover {
+            background-color: #00bcd4;
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background-color: #00bcd4;
+            color: #1a1a2e;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0097a7;
+            transform: translateY(-3px);
+        }
+
+        .icon-btn {
+            background-color: #00bcd4;
+            color: #1a1a2e;
+            padding: 0.75rem;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .icon-btn:hover {
+            background-color: #0097a7;
+            transform: translateY(-3px);
+        }
+
+        .section-title {
+            color: #00bcd4;
+            text-transform: uppercase;
+        }
+
+        .card {
+            background-color: #2e3a51;
+            border-radius: 12px;
+        }
+
+        .experience-item {
+            border-right: 3px solid #00bcd4;
+            border-left: none;
+        }
+
+        .experience-item.absolute {
+            right: -2px;
+            left: auto;
+        }
+
+        .featured-project-card {
+            overflow: hidden;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            position: relative;
+            height: 160px;
+            background-color: #2e3a51;
+        }
+
+        .featured-project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .featured-project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-container {
+            position: relative;
+        }
+
+        .project-category {
+            margin-top: 4rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #00bcd4;
+            padding-bottom: 0.5rem;
+        }
+
+        .project-detail-card {
+            background-color: #2e3a51;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .project-detail-card:not(.admin-mode) {
+            cursor: default;
+        }
+
+        .admin-mode.project-detail-card {
+            cursor: pointer;
+        }
+
+        .project-detail-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .image-gallery figure {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .image-gallery figcaption {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            margin-top: 0.5rem;
+        }
+
+        #messageBox {
+            animation: fadeln 0.3s ease-out;
+        }
+
+        #messageBox.hidden {
+            animation: fadeOut 0.3s ease-out forwards;
+        }
+
+        #imagePreviewModal {
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        @keyframes fadeln {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+
+        .bluebeam-icon {
+            width: 3rem;
+            height: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .editable-container {
+            position: relative;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .editable-text {
+            flex-grow: 1;
+            min-width: 0;
+            word-wrap: break-word;
+        }
+
+        .admin-mode .editable-text, .admin-mode .image-editable-wrapper {
+            cursor: pointer;
+        }
+
+        .editable-text[contenteditable="true"] {
+            border: 1px solid #00bcd4;
+            padding: 2px;
+            border-radius: 4px;
+            outline: none;
+        }
+
+        .edit-delete-controls {
+            background-color: #2e3a51;
+            border-radius: 8px;
+            padding: 0.25rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 10;
+            display: flex;
+            margin-left: 0.5rem;
+            flex-shrink: 0;
+            gap: 0.25rem;
+        }
+
+        .edit-delete-controls.hidden {
+            display: none;
+        }
+
+        .edit-delete-controls button {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            border-radius: 9999px;
+            transition: background-color 0.2s ease;
+        }
+
+        .edit-delete-controls .edit-btn {
+            background-color: #00bcd4;
+            color: #1a1a2e;
+        }
+
+        .edit-delete-controls .edit-btn:hover {
+            background-color: #0097a7;
+        }
+
+        .edit-delete-controls .delete-btn {
+            background-color: #ef4444;
+            color: #fff;
+        }
+
+        .edit-delete-controls .delete-btn:hover {
+            background-color: #dc2626;
+        }
+
+        .edit-delete-controls .align-btn {
+            background-color: #60a5fa;
+            color: #1a1a2e;
+        }
+
+        .edit-delete-controls .align-btn:hover {
+            background-color: #3b82f6;
+        }
+
+        .project-detail-card .editable-text {
+            text-align: right;
+        }
+
+        .project-detail-card p.text-justify.editable-text {
+            text-align: justify;
+        }
+
+        .image-gallery figcaption.editable-text {
+            text-align: center;
+        }
+
+        .image-editable-wrapper {
+            position: relative;
+        }
+
+        .image-edit-delete-controls {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background-color: rgba(46, 58, 81, 0.8);
+            border-radius: 8px;
+            padding: 0.25rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            z-index: 20;
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .image-edit-delete-controls.hidden {
+            display: none;
+        }
+
+        .image-edit-delete-controls button {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            border-radius: 9999px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .image-edit-delete-controls .edit-image-btn {
+            background-color: #00bcd4;
+            color: #1a1a2e;
+        }
+
+        .image-edit-delete-controls .edit-image-btn:hover {
+            background-color: #0097a7;
+            transform: scale(1.1);
+        }
+
+        .image-edit-delete-controls .delete-image-btn {
+            background-color: #ef4444;
+            color: #fff;
+        }
+
+        .image-edit-delete-controls .delete-image-btn:hover {
+            background-color: #dc2626;
+            transform: scale(1.1);
+        }
+
+        .add-image-area {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 15;
+        }
+        .admin-mode .add-image-area {
+            cursor: pointer;
+        }
+        .add-image-btn {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background-color: #60a5fa;
+            color: #1a1a2e;
+            border-radius: 9999px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .add-image-btn:hover {
+            background-color: #3b82f6;
+            transform: translateY(-3px);
+        }
+
+        #messageBox #pinInput, #messageBox #urlInput {
+            background-color: #1a1a2e;
+            border: 1px solid #00bcd4;
+            color: #e0e0e0;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            width: 100%;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .experience-item li {
+            padding-right: 1rem;
+        }
+        .experience-item li .editable-container {
+            width: calc(100% - 1rem);
+            margin-left: auto;
+        }
+
+        /* Styles for the Auth Modal */
+        #authModal .input-field {
+            background-color: #1a1a2e;
+            border: 1px solid #00bcd4;
+            color: #e0e0e0;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            width: 100%;
+        }
+
+        #authModal .input-field::placeholder {
+            color: #a0a0a0;
+        }
+
+        #authModal .auth-toggle-btn {
+            background-color: #2e3a51; /* Darker blue-gray */
+            border: 1px solid #00bcd4; /* Cyan border */
+            width: 48px; /* Fixed width for icons */
+            height: 48px; /* Fixed height for icons */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px; /* Make it circular */
+            font-size: 1.25rem;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
+        }
+
+        #authModal .auth-toggle-btn.active,
+        #authModal .auth-toggle-btn:hover {
+            background-color: #00bcd4;
+            color: #1a1a2e;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header/Navbar -->
+    <header class="py-3 px-4 fixed w-full z-10 rounded-b-xl" style="background-color: rgba(26, 26, 46, 0.8); backdrop-filter: blur(10px);">
+        <nav class="container mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold text-white rounded-md p-2 uppercase">Portfolio</div>
+            <ul class="flex space-x-6">
+                <li><a href="#home" class="header-nav-link text-white text-sm font-medium active">Home</a></li>
+                <li><a href="#skills" class="header-nav-link text-white text-sm font-medium">Skills</a></li>
+                <li><a href="#experience" class="header-nav-link text-white text-sm font-medium">Experience</a></li>
+                <li><a href="#portfolio" class="header-nav-link text-white text-sm font-medium">Portfolio</a></li>
+                <li><a href="#contact" class="header-nav-link text-white text-sm font-medium">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="pt-16">
+        <!-- Home Section -->
+        <section id="home" class="relative flex flex-col md:flex-row-reverse items-center justify-center min-h-screen px-4 md:px-8 py-8 bg-[#1a1a2e] text-white rounded-b-3xl" style="top: -11px;">
+            <div id="admin-controls" class="hidden absolute top-5 right-5 z-20 flex flex-col items-end gap-2">
+                <button id="signInBtn" class="text-sm font-semibold text-cyan-400 hover:underline">Sign In</button>
+                <button id="signOutBtn" class="hidden btn-primary bg-red-500 hover:bg-red-700 px-4 py-2 rounded-full text-sm font-semibold">Sign Out</button>
+            </div>
+            <div class="md:w-1/2 flex flex-col items-end md:text-right mb-6 md:mb-0 md:pt-0 pr-8">
+                <p class="text-base mb-1">Hello, It's Me</p>
+                <h1 id="main-title" class="text-4xl md:text-5xl font-bold mb-3 leading-tight uppercase cursor-pointer">MIN HTET AUNG</h1>
+                <div class="editable-container justify-end mb-5">
+                    <p id="home-subtitle" class="text-2xl md:text-3xl font-semibold text-cyan-400 editable-text" contenteditable="false">ARCHITECTURAL DESIGNER &<br>BUILDER</p>
+                    <div class="edit-delete-controls hidden ml-2">
+                        <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                        <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+                        <button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button>
+                        <button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button>
+                    </div>
+                </div>
+                <div class="editable-container justify-end mb-6">
+                    <p id="home-description" class="text-base max-w-lg text-justify editable-text" contenteditable="false">
+                        Architectural designer & builder with a Bachelor of Architecture (B.Arch) from Cal Poly Pomona and 6+ years of combined academic and hands-on experience in architectural design and construction. Proficient in design development, construction documentation, city permitting process and project coordination, including residential renovations and landscaping.
+                    </p>
+                    <div class="edit-delete-controls hidden ml-2">
+                        <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                        <button class="delete-btn"><i class="fas fa-trash-alt"></i></button>
+                        <button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button>
+                        <button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button>
+                    </div>
+                </div>
+                <div class="flex space-x-3 mb-6">
+                    <a href="https://www.linkedin.com/in/min-htet-aung-69173625a" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <div id="homeEmailIcon" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div id="homePhoneIcon" class="social-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div id="homeLocationIcon" class="social-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                </div>
+                <!-- Updated Resume Link with new OneDrive URL -->
+                <a href="https://1drv.ms/b/c/e0a927d1190ca0f7/EVyXtvH54ZJHh78TzIkL_NUBGd2VqLo090xo3Mxlv7bLiQ?e=ZVc8mA&download=1" id="resume-link" download="Resume - Min Htet Aung.pdf" class="btn-primary inline-block px-6 py-2 rounded-full text-base font-semibold">Download Resume</a>
+            </div>
+            <div class="md:w-1/2 flex flex-col items-center pt-8 md:pb-0 pl-8">
+                <div class="photo-container relative w-64 h-64 md:w-80 md:h-80 bg-cyan-600 rounded-full flex items-center justify-center animate-pulse">
+                    <figure class="image-editable-wrapper w-full h-full rounded-full">
+                        <img id="profilePhoto" src="https://i.imgur.com/nzKKXiE.jpeg" alt="Min Htet Aung - Profile Photo" class="rounded-full w-56 h-56 md:w-72 md:h-72 object-cover border-4 border-white">
+                        <div class="image-edit-delete-controls hidden">
+                            <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
+                            <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="container mx-auto py-12 px-4 md:px-8 text-right">
+            <h2 class="text-3xl font-bold mb-8 section-title">My SKILLS</h2>
+            <div id="skills-grid" class="card p-6 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl ml-auto">
+                <!-- Skills will be dynamically populated or hardcoded here -->
+                <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+                    <i class="fas fa-cubes text-3xl text-cyan-400 mb-2"></i>
+                    <div class="editable-container justify-center">
+                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Rhino</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
+                    </div>
+                </div>
+                <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+                    <i class="fas fa-stream text-3xl text-cyan-400 mb-2"></i>
+                    <div class="editable-container justify-center">
+                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Grasshopper</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
+                    </div>
+                </div>
+                <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+                    <i class="fas fa-pencil-ruler text-3xl text-cyan-400 mb-2"></i>
+                    <div class="editable-container justify-center">
+                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Illustrator</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
+                    </div>
+                </div>
+                <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+                    <i class="fas fa-drafting-compass text-3xl text-cyan-400 mb-2"></i>
+                    <div class="editable-container justify-center">
+                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Revit</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
+                    </div>
+                </div>
+                <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+                    <i class="fas fa-lightbulb text-3xl text-cyan-400 mb-2"></i>
+                    <div class="editable-container justify-center">
+                        <p class="text-base font-medium editable-text text-center" contenteditable="false">V-Ray</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
+                    </div>
+                </div>
+                <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+                    <i class="fas fa-image text-3xl text-cyan-400 mb-2"></i>
+                    <div class="editable-container justify-center">
+                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Photoshop</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
+                    </div>
+                </div>
+                <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+                    <i class="fas fa-bezier-curve text-3xl text-cyan-400 mb-2"></i>
+                    <div class="editable-container justify-center">
+                        <p class="text-base font-medium editable-text text-center" contenteditable="false">AutoCAD</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
+                    </div>
+                </div>
+                <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+                    <i class="fas fa-map-marked-alt text-3xl text-cyan-400 mb-2"></i>
+                    <div class="editable-container justify-center">
+                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Twinmotion</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
+                    </div>
+                </div>
+                <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+                    <i class="fas fa-mountain text-3xl text-cyan-400 mb-2"></i>
+                    <div class="editable-container justify-center">
+                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Lumion</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
+                    </div>
+                </div>
+                <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+                    <i class="fas fa-desktop text-3xl text-cyan-400 mb-2"></i>
+                    <div class="editable-container justify-center">
+                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Microsoft Office</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
+                    </div>
+                </div>
+                <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+                    <svg class="bluebeam-icon text-cyan-400" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 78.4 21.6 L 78.4 78.4 L 21.6 78.4 L 21.6 21.6 L 78.4 21.6 Z M 69 31.8 L 31.8 31.8 L 31.8 69 L 69 69 L 69 31.8 Z" fill="currentColor" />
+                        <rect x="39" y="39" width="22" height="22" fill="currentColor" />
+                    </svg>
+                    <div class="editable-container justify-center">
+                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Bluebeam</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
+                    </div>
+                </div>
+                <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+                    <i class="fas fa-print text-3xl text-cyan-400 mb-2"></i>
+                    <div class="editable-container justify-center">
+                        <p class="text-base font-medium editable-text text-center" contenteditable="false">3D Printing</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="container mx-auto py-12 px-4 md:px-8 text-right">
+            <h2 class="text-3xl font-bold mb-8 section-title">EXPERIENCE</h2>
+            <div class="card p-6 max-w-4xl ml-auto text-right">
+                <div class="experience-item relative pr-6 pb-6 pl-0">
+                    <div class="absolute w-3 h-3 bg-cyan-400 rounded-full" style="right:-2px; top:0;"></div>
+                    <div class="editable-container justify-end"><h3 class="text-xl font-semibold mb-1 editable-text" contenteditable="false">Junior Designer/Drafter</h3><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-base text-gray-400 mb-0.5 editable-text" contenteditable="false">Solid Architecture Inc - Los Angeles, CA</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm text-gray-500 mb-2 editable-text" contenteditable="false">April 2025 - June 2025</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <ul class="list-disc pr-4 text-gray-300 space-y-1 text-right list-outside">
+                        <li><div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Prepared permit drawings and coordinated plan submissions to various city departments.</span><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div></li>
+                        <li><div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Delivered city documents and permit sets, ensuring accuracy and compliance.</span><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div></li>
+                        <li><div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Produced design and construction documents under the direction of a senior architect.</span><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div></li>
+                        <li><div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Worked in a hybrid environment.</span><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div></li>
+                    </ul>
+                </div>
+                <div class="experience-item relative pr-6 pb-6 mt-6 pl-0">
+                    <div class="absolute w-3 h-3 bg-cyan-400 rounded-full" style="right:-2px; top:0;"></div>
+                    <div class="editable-container justify-end"><h3 class="text-xl font-semibold mb-1 editable-text" contenteditable="false">Architecture Intern / Assistant Architect</h3><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-base text-gray-400 mb-0.5 editable-text" contenteditable="false">FoxLin Architects - Mission Viejo, CA</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm text-gray-500 mb-2 editable-text" contenteditable="false">June 2024 - October 2024</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <ul class="list-disc pr-4 text-gray-300 space-y-1 text-right list-outside">
+                        <li><div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Developed design drawings, 3D models, and renderings for high-end residential projects.</span><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div></li>
+                        <li><div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Supported construction document sets and building code research.</span><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div></li>
+                        <li><div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Participated in site visits and project meetings with consultants and clients.</span><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div></li>
+                        <li><div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Created physical and digital presentation materials for client proposals.</span><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div></li>
+                    </ul>
+                </div>
+                <div class="experience-item relative pr-6 mt-6 pl-0">
+                    <div class="absolute w-3 h-3 bg-cyan-400 rounded-full" style="right:-2px; top:0;"></div>
+                    <div class="editable-container justify-end"><h3 class="text-xl font-semibold mb-1 editable-text" contenteditable="false">Freelance Designer / Builder</h3><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm text-gray-500 mb-2 editable-text" contenteditable="false">2021-2023</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <ul class="list-disc pr-4 text-gray-300 space-y-1 text-right list-outside">
+                        <li><div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Managed all phases of a residential room renovation, from concept to subcontractor coordination.</span><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div></li>
+                        <li><div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Designed and constructed a custom hillside retaining wall with integrated landscaping.</span><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div></li>
+                        <li><div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Managed project budgets, material selection, and hands-on building work.</span><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section (Featured Projects - Overview) -->
+        <section id="portfolio" class="container mx-auto py-12 px-4 md:px-8 text-right">
+            <h2 class="text-3xl font-bold mb-8 section-title">My PORTFOLIO</h2>
+            <div class="card p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl ml-auto">
+                <!-- Professional Work Card -->
+                <div class="featured-project-card block rounded-xl relative group" data-project-category="professional">
+                    <figure class="image-editable-wrapper w-full h-full">
+                        <img id="professional-work-image" src="https://placehold.co/600x400/2e3a51/00bcd4?text=Professional+Work" alt="Professional Work Image" class="w-full h-full object-cover" />
+                        <div class="image-edit-delete-controls hidden">
+                            <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
+                            <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </figure>
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none">
+                        <h3 class="text-xl font-bold text-white">Professional Work</h3>
+                    </div>
+                </div>
+                <!-- Studio Projects Card -->
+                <div class="featured-project-card block rounded-xl relative group" data-project-category="studio">
+                    <figure class="image-editable-wrapper w-full h-full">
+                        <img id="studio-projects-image" src="https://placehold.co/600x400/2e3a51/00bcd4?text=Studio+Projects" alt="Studio Projects Image" class="w-full h-full object-cover" />
+                        <div class="image-edit-delete-controls hidden">
+                            <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
+                            <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </figure>
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none">
+                        <h3 class="text-xl font-bold text-white">Studio Projects</h3>
+                    </div>
+                </div>
+                <!-- Personal/Competitions Card -->
+                <div class="featured-project-card block rounded-xl relative group" data-project-category="personal">
+                    <figure class="image-editable-wrapper w-full h-full">
+                        <img id="personal-work-image" src="https://placehold.co/600x400/2e3a51/00bcd4?text=Personal+Work" alt="Personal Work Image" class="w-full h-full object-cover" />
+                        <div class="image-edit-delete-controls hidden">
+                            <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
+                            <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </figure>
+                    <div class="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center p-4 text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl pointer-events-none">
+                        <h3 class="text-xl font-bold text-white">Personal/Competitions</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center mt-8">
+                <button id="seeAllProjectsBtn" class="icon-btn">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- Detailed Portfolio Section (initially hidden) -->
+        <section id="detailed-portfolio" class="container mx-auto py-12 px-4 md:px-8 text-right hidden">
+            <h2 class="text-3xl font-bold mb-8 section-title">All PROJECTS</h2>
+            <div class="flex justify-end mb-8">
+                <button id="backToFeaturedBtn" class="icon-btn">
+                    <i class="fa fa-arrow-left"></i>
+                </button>
+            </div>
+
+            <div class="project-category text-right">
+                <div class="editable-container justify-end"><h3 class="text-2xl font-bold section-title editable-text" contenteditable="false">Professional WORK</h3><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+            </div>
+            <div id="professional-projects-container" class="grid grid-cols-1 gap-8 mt-6">
+                <!-- Added static IDs to project-detail-cards for proper data mapping -->
+                <div class="project-detail-card" id="professional-project-card-1">
+                    <div class="editable-container justify-end"><h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" contenteditable="false">High-End Residential Estate Development</h4><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm text-gray-400 mb-1 editable-text" contenteditable="false">Year: 2024 | Firm: FoxLin Architects</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-base leading-relaxed text-justify mb-4 editable-text" contenteditable="false">Assisted in the design development and construction documentation for a sprawling luxury residential estate, involving complex site grading and bespoke architectural details.</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm mb-2 editable-text" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Assistant Architect</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm mb-4 editable-text" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> Revit, V-Ray, Adobe Photoshop, AutoCAD</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="image-gallery">
+                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Render" alt="Residential Estate Render" id="professional-project-card-1-image-1"><figcaption class="editable-container justify-center"><p class="editable-text" contenteditable="false" id="professional-project-card-1-caption-1"></p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div></figcaption><div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div></figure>
+                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Detail" alt="Residential Estate Detail" id="professional-project-card-1-image-2"><figcaption class="editable-container justify-center"><p class="editable-text" contenteditable="false" id="professional-project-card-1-caption-2"></p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fa fa-align-right"></i></button></div></figcaption><div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div></figure>
+                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Model" alt="Residential Estate Model" id="professional-project-card-1-image-3"><figcaption class="editable-container justify-center"><p class="editable-text" contenteditable="false" id="professional-project-card-1-caption-3"></p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div></figcaption><div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div></figure>
+                    </div>
+                    <div class="add-image-area"><button class="add-image-btn hidden"><i class="fas fa-plus"></i></button></div>
+                </div>
+                <div class="project-detail-card" id="professional-project-card-2">
+                    <div class="editable-container justify-end"><h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" contenteditable="false">Residential Remodel & Addition</h4><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm text-gray-400 mb-1 editable-text" contenteditable="false">Year: 2025 | Firm: Solid Architecture Inc.</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-base leading-relaxed text-justify mb-4 editable-text" contenteditable="false">Handled drafting for permit and construction documents for a single-family home remodel, including navigating the city's plan check and permit submission process from start to finish.</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm mb-2 editable-text" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Junior Designer / Drafter</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm mb-4 editable-text" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> AutoCAD, Bluebeam, Adobe Illustrator</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="image-gallery">
+                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Remodel+Drawing" alt="Remodel Permit Drawing" id="professional-project-card-2-image-1"><figcaption class="editable-container justify-center"><p class="editable-text" contenteditable="false" id="professional-project-card-2-caption-1"></p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div></figcaption><div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div></figure>
+                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Remodel+Plan" alt="Remodel Construction Plan" id="professional-project-card-2-image-2"><figcaption class="editable-container justify-center"><p class="editable-text" contenteditable="false" id="professional-project-card-2-caption-2"></p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div></figcaption><div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div></figure>
+                    </div>
+                    <div class="add-image-area"><button class="add-image-btn hidden"><i class="fas fa-plus"></i></button></div>
+                </div>
+            </div>
+
+            <div class="project-category text-right">
+                <div class="editable-container justify-end"><h3 class="text-2xl font-bold section-title editable-text" contenteditable="false">Studio PROJECTS</h3><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+            </div>
+            <div id="studio-projects-container" class="grid grid-cols-1 gap-8 mt-6">
+                <div class="project-detail-card" id="studio-project-card-1">
+                    <div class="editable-container justify-end"><h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" contenteditable="false">Urban Reimagination Center</h4><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm text-gray-400 mb-1 editable-text" contenteditable="false">Year: 2023 | School: Cal Poly Pomona</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-base leading-relaxed text-justify mb-4 editable-text" contenteditable="false">A conceptual urban design project focusing on sustainable community development and adaptive reuse strategies in a dense urban environment. This project explored innovative public spaces and mixed-use programming.</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm mb-2 editable-text" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Lead Designer, Researcher</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm mb-4 editable-text" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> Rhino, Grasshopper, Adobe Illustrator, AutoCAD</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="image-gallery">
+                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+1+Render" alt="Studio Project 1 - Main Render" id="studio-project-card-1-image-1"><figcaption class="editable-container justify-center"><p class="editable-text" contenteditable="false" id="studio-project-card-1-caption-1"></p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div></figcaption><div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div></figure>
+                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+1+Plan" alt="Studio Project 1 - Site Plan" id="studio-project-card-1-image-2"><figcaption class="editable-container justify-center"><p class="editable-text" contenteditable="false" id="studio-project-card-1-caption-2"></p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div></figcaption><div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div></figure>
+                    </div>
+                    <div class="add-image-area"><button class="add-image-btn hidden"><i class="fas fa-plus"></i></button></div>
+                </div>
+
+                <!-- Duplicated Studio Project 1 -->
+                <div class="project-detail-card" id="studio-project-card-2">
+                    <div class="editable-container justify-end"><h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" contenteditable="false">Sustainable Housing Development</h4><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm text-gray-400 mb-1 editable-text" contenteditable="false">Year: 2024 | School: Cal Poly Pomona</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-base leading-relaxed text-justify mb-4 editable-text" contenteditable="false">A study on developing eco-friendly housing solutions that integrate renewable energy, efficient material use, and community-focused design principles for urban settings.</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm mb-2 editable-text" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Designer</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm mb-4 editable-text" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> Revit, V-Ray, Adobe Photoshop</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="image-gallery">
+                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+2+Render" alt="Studio Project 2 - Main Render" id="studio-project-card-2-image-1"><figcaption class="editable-container justify-center"><p class="editable-text" contenteditable="false" id="studio-project-card-2-caption-1"></p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div></figcaption><div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div></figure>
+                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+2+Plan" alt="Studio Project 2 - Site Plan" id="studio-project-card-2-image-2"><figcaption class="editable-container justify-center"><p class="editable-text" contenteditable="false" id="studio-project-card-2-caption-2"></p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div></figcaption><div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div></figure>
+                    </div>
+                    <div class="add-image-area"><button class="add-image-btn hidden"><i class="fas fa-plus"></i></button></div>
+                </div>
+
+                <!-- Duplicated Studio Project 2 -->
+                <div class="project-detail-card" id="studio-project-card-3">
+                    <div class="editable-container justify-end"><h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" contenteditable="false">Community Hub Revitalization</h4><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm text-gray-400 mb-1 editable-text" contenteditable="false">Year: 2022 | School: Cal Poly Pomona</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-base leading-relaxed text-justify mb-4 editable-text" contenteditable="false">A project focused on converting an abandoned industrial site into a vibrant mixed-use community center, incorporating green spaces, public art, and flexible event areas.</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm mb-2 editable-text" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Urban Planner, Designer</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="editable-container justify-end"><p class="text-sm mb-4 editable-text" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> AutoCAD, SketchUp, Lumion</p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                    <div class="image-gallery">
+                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+3+Render" alt="Studio Project 3 - Main Render" id="studio-project-card-3-image-1"><figcaption class="editable-container justify-center"><p class="editable-text" contenteditable="false" id="studio-project-card-3-caption-1"></p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></i</button></div></figcaption><div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div></figure>
+                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+3+Plan" alt="Studio Project 3 - Site Plan" id="studio-project-card-3-image-2"><figcaption class="editable-container justify-center"><p class="editable-text" contenteditable="false" id="studio-project-card-3-caption-2"></p><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div></figcaption><div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div></figure>
+                    </div>
+                    <div class="add-image-area"><button class="add-image-btn hidden"><i class="fas fa-plus"></i></button></div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container mx-auto py-12 px-4 md:px-8 text-right">
+            <h2 class="text-3xl font-bold mb-8 section-title">CONTACT</h2>
+            <div class="card p-6 max-w-xl ml-auto text-right">
+                <div class="flex flex-col items-end space-y-3">
+                    <div class="flex items-center text-base">
+                        <div class="editable-container justify-end"><span id="contact-phone" class="text-white editable-text text-right" contenteditable="false">(626) 466-5346</span><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                        <i class="fas fa-phone-alt text-cyan-400 ml-4"></i>
+                    </div>
+                    <div class="flex items-center text-base">
+                        <div class="editable-container justify-end"><a id="contact-email" href="mailto:mha.cia92@gmail.com" class="text-white hover:underline editable-text text-right" contenteditable="false">mha.cia92@gmail.com</a><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                        <i class="fas fa-envelope text-cyan-400 ml-4"></i>
+                    </div>
+                    <div class="flex items-center text-base">
+                        <div class="editable-container justify-end"><span id="contact-address" class="text-white editable-text text-right" contenteditable="false">La Puente, CA 91744</span><div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div></div>
+                        <i class="fas fa-map-marker-alt text-cyan-400 ml-4"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-4 mt-12 text-center">
+        <p class="font-extralight text-white uppercase" style="font-size: 26px;">THANK YOU</p>
+    </footer>
+
+    <!-- Image Preview Modal -->
+    <div id="imagePreviewModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden opacity-0 pointer-events-none">
+        <img id="imagePreviewImg" src="" alt="Image Preview" class="max-w-[80vw] max-h-[80vh] rounded-lg shadow-lg">
+    </div>
+
+    <!-- Custom Message Box HTML -->
+    <div id="messageBox" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-[#2e3a51] p-6 rounded-lg shadow-lg max-w-sm w-full text-center">
+            <p id="messageText" class="text-white text-lg mb-4"></p>
+            <input type="password" id="pinInput" class="hidden" placeholder="PIN">
+            <input type="text" id="urlInput" class="hidden" placeholder="Paste URL and Press Enter">
+        </div>
+    </div>
+
+    <!-- Auth Modal (Sign In/Sign Up) -->
+    <div id="authModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-[#2e3a51] p-6 rounded-lg shadow-lg w-full max-w-md relative">
+            <!-- Close Button -->
+            <button id="closeAuthModal" class="absolute top-3 right-3 text-white hover:text-cyan-400 text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Auth Form Content -->
+            <div id="authFormContent">
+                <!-- Name Field (for Sign Up) -->
+                <div class="mb-4" id="nameField">
+                    <input type="text" id="authName" placeholder="Name" class="input-field">
+                </div>
+                <!-- Email Field -->
+                <div class="mb-4">
+                    <input type="email" id="authEmail" placeholder="Email" class="input-field">
+                </div>
+                <!-- Password Field -->
+                <div class="mb-4">
+                    <input type="password" id="authPassword" placeholder="Password" class="input-field">
+                </div>
+                <!-- Confirm Password Field (for Sign Up) -->
+                <div class="mb-6" id="confirmPasswordField">
+                    <input type="password" id="authConfirmPassword" placeholder="Confirm Password" class="input-field">
+                </div>
+                
+                <!-- Buttons: Sign In/Sign Up toggle and Submit -->
+                <div class="flex justify-end items-center space-x-3">
+                    <button id="signInToggleBtn" class="auth-toggle-btn active" title="Sign In">
+                        <i class="fas fa-sign-in-alt"></i>
+                    </button>
+                    <button id="signUpToggleBtn" class="auth-toggle-btn" title="Sign Up">
+                        <i class="fas fa-user-plus"></i>
+                    </button>
+                    <button id="authSubmitBtn" class="btn-primary px-4 py-2 rounded-full flex items-center justify-center text-xl">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        // Import necessary Firebase Auth functions
+        import { 
+            getAuth, 
+            GoogleAuthProvider, 
+            signInWithPopup, 
+            signOut, 
+            onAuthStateChanged, 
+            signInAnonymously,
+            createUserWithEmailAndPassword, // Added for sign-up
+            signInWithEmailAndPassword,     // Added for sign-in
+            updateProfile                   // Added for updating user profile (e.g., display name)
+        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc, updateDoc, deleteField } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // --- Global State & Config ---
+        let app, auth, db;
+        let isAdmin = false;
+        let activeModalAction = null;
+        let isAppInitialized = false;
+        let currentAuthTab = 'signIn'; // Tracks the active tab: 'signIn' or 'signUp'
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'portfolio-minhtetaung';
+        // Firestore document reference for public portfolio content
+        const docRef = () => doc(db, `artifacts/${appId}/public/data/portfolio/content`);
+
+        // --- Firebase Initialization
+        function initializeFirebase() {
+            try {
+                // Use the provided config object, falling back to a default if not provided.
+                const firebaseConfig = typeof __firebase_config !== 'undefined' ?
+                    JSON.parse(__firebase_config) : {
+                        apiKey: "AIzaSyAKc_z-3OhB8ytDAHP3tOoI75cgPyPY_7M",
+                        authDomain: "portfolio-d24d0.firebaseapp.com",
+                        projectId: "portfolio-d24d0",
+                        storageBucket: "portfolio-d24d0.firebasestorage.app",
+                        messagingSenderId: "1087561111526",
+                        appId: "1:1087561111526:web:8193c92f4a54023f9d6827",
+			measurementId: "G-PT08WG9QY7"
+                    };
+
+                app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+                setupAuthListener();
+            } catch (e) {
+                console.error("Firebase initialization failed:", e);
+                showMessageBox("Could not connect to the server. Please try again later.");
+            }
+        }
+
+        // --- Firebase Authentication State Listener ---
+        function setupAuthListener() {
+            onAuthStateChanged(auth, async (user) => {
+                const adminControls = document.getElementById('admin-controls');
+                const signInBtn = document.getElementById('signInBtn');
+                const signOutBtn = document.getElementById('signOutBtn');
+
+                if (user && !user.isAnonymous) {
+                    isAdmin = true;
+                    document.body.classList.add('admin-mode');
+                    signInBtn.classList.add('hidden');
+                    signOutBtn.classList.remove('hidden');
+                    adminControls.classList.remove('hidden');
+                } else {
+                    isAdmin = false;
+                    document.body.classList.remove('admin-mode');
+                    signOutBtn.classList.add('hidden');
+                    signInBtn.classList.remove('hidden'); // Ensure sign-in button is visible when not admin
+                    adminControls.classList.add('hidden'); 
+                    hideAllControls(); // Hide edit controls when not admin
+                }
+
+                if (!user) {
+                    // If no user (first load or signed out), try to sign in anonymously
+                    try {
+                        await signInAnonymously(auth);
+                        // The onAuthStateChanged listener will trigger again with the anonymous user
+                        return; 
+                    } catch (error) {
+                        console.error("Anonymous sign-in failed:", error);
+                        if (error.code === 'auth/configuration-not-found') {
+                            showMessageBox("Sign-in service is not configured. Please enable Anonymous sign-in in your Firebase project settings.");
+                        }
+                    }
+                }
+                
+                // Load content and set up listeners only once after initial auth state is determined
+                if (!isAppInitialized) {
+                    isAppInitialized = true;
+                    await loadContentFromFirestore();
+                    initializeEventListeners();
+                }
+            });
+        }
+
+        // --- Data Persistence (Firestore) ---
+        async function loadContentFromFirestore() {
+            try {
+                const docSnap = await getDoc(docRef());
+                if (docSnap.exists()) {
+                    const portfolioData = docSnap.data();
+
+                    // Load Resume Link
+                    const resumeLink = document.getElementById('resume-link');
+                    if (resumeLink && portfolioData.resumeUrl) {
+                        resumeLink.href = portfolioData.resumeUrl;
+                    }
+
+                    // --- Load Text Content ---
+                    // Iterate over all editable text elements in the current HTML
+                    document.querySelectorAll('.editable-text').forEach(el => {
+                        const id = el.id;
+                        if (!id) return; // Skip if no ID
+
+                        if (portfolioData.text && portfolioData.text[id]) {
+                            el.innerHTML = portfolioData.text[id].content || '';
+                            if(portfolioData.text[id].align) el.style.textAlign = portfolioData.text[id].align;
+                        }
+                    });
+
+                    // --- Load Static Images (from the 'images' field) ---
+                    // These are images with fixed IDs in the initial HTML structure
+                    document.querySelectorAll('.image-editable-wrapper img').forEach(el => {
+                        const id = el.id;
+                        if (!id) return; // Skip if no ID
+
+                        if (portfolioData.images && portfolioData.images[id]) {
+                            el.src = portfolioData.images[id];
+                        }
+                    });
+
+                    // --- Load Dynamic Images (from the 'dynamicContent' field) ---
+                    // These are images added via the "Add Image" button and need to be recreated
+                    if (portfolioData.dynamicContent) {
+                        for (const projectCardId in portfolioData.dynamicContent) {
+                            const projectGalleryData = portfolioData.dynamicContent[projectCardId]?.gallery;
+                            if (projectGalleryData) {
+                                const imageGalleryContainer = document.getElementById(projectCardId)?.querySelector('.image-gallery');
+                                if (imageGalleryContainer) {
+                                    // Clear existing dynamically added images to prevent duplicates on reload
+                                    // Identify static images vs dynamic ones by their ID pattern
+                                    Array.from(imageGalleryContainer.children).forEach(figure => {
+                                        const img = figure.querySelector('img');
+                                        if (img && img.id && img.id.startsWith('img_')) { // Check for dynamic ID pattern
+                                            figure.remove();
+                                        }
+                                    });
+
+                                    // Recreate dynamic images from Firestore data
+                                    for (const imgId in projectGalleryData) {
+                                        const imgData = projectGalleryData[imgId];
+                                        // Ensure the image doesn't already exist in the static HTML (unlikely for dynamic IDs, but good check)
+                                        if (!document.getElementById(imgId)) {
+                                            const newFigure = document.createElement('figure');
+                                            newFigure.className = 'image-editable-wrapper';
+                                            newFigure.innerHTML = `
+                                                <img src="${imgData.url}" alt="Uploaded Image" class="w-full h-auto rounded-lg" id="${imgId}">
+                                                <figcaption class="editable-container justify-center">
+                                                    <p class="editable-text" contenteditable="false" id="${imgId.replace('img_', 'caption-img_')}">${imgData.caption || ''}</p>
+                                                    <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
+                                                </figcaption>
+                                                <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                                            `;
+                                            imageGalleryContainer.appendChild(newFigure);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                } else {
+                    console.log("No content document found. Displaying default content.");
+                }
+            } catch (error) {
+                console.error("Error loading document:", error);
+                showMessageBox("Failed to load portfolio data. Displaying default content.");
+            }
+        }
+        
+        // --- Save data to Firestore ---
+        // 'key' refers to the top-level field in the Firestore document (e.g., 'text', 'images', 'dynamicContent')
+        // 'id' is the specific ID of the element being saved
+        // 'data' is the content to save (e.g., text string, image URL, or an object for dynamic images)
+        async function saveData(key, id, data) {
+            if (!isAdmin || !id) return;
+            const updateData = {};
+            // Special handling for dynamic image content
+            if (key === 'dynamicGalleryImage') {
+                const projectCardId = data.projectCardId;
+                const imgData = { url: data.url, caption: data.caption };
+                updateData[`dynamicContent.${projectCardId}.gallery.${id}`] = imgData;
+            } else {
+                updateData[`${key}.${id}`] = data;
+            }
+            
+            try {
+                await setDoc(docRef(), updateData, { merge: true });
+                console.log(`Saved data for ${key}.${id}`);
+            } catch (e) {
+                console.error("Error saving data: ", e);
+                showMessageBox("Failed to save changes.");
+            }
+        }
+
+        // --- Delete data from Firestore ---
+        // 'key' refers to the top-level field (e.g., 'text', 'images', 'dynamicContent')
+        // 'id' is the specific ID of the element being deleted
+        // 'parentKey' is used for nested dynamic content (e.g., projectCardId for dynamic images)
+        async function deleteData(key, id, parentKey = null) {
+            if (!isAdmin || !id) return;
+            const updateData = {};
+            if (key === 'dynamicGalleryImage' && parentKey) {
+                updateData[`dynamicContent.${parentKey}.gallery.${id}`] = deleteField();
+            } else {
+                updateData[`${key}.${id}`] = deleteField();
+            }
+
+            try {
+                await updateDoc(docRef(), updateData);
+                console.log(`Deleted data for ${key}.${id}`);
+            } catch (e) {
+                console.error("Error deleting data: ", e);
+                showMessageBox("Failed to delete item.");
+            }
+        }
+        
+        //--- UI & Event Listeners ---
+        document.addEventListener('DOMContentLoaded', () => {
+            initializeFirebase();
+        });
+        
+        function initializeEventListeners() {
+            // Assign unique IDs to elements that don't have them (for general purpose, though static IDs are preferred for persistence)
+            assignUniqueIDs();
+
+            // --- Navigation Logic ---
+            document.querySelectorAll('a.header-nav-link').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelectorAll('a.header-nav-link').forEach(link => link.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    if (this.getAttribute('href') !== '#portfolio') {
+                        document.getElementById('portfolio').classList.remove('hidden');
+                        document.getElementById('detailed-portfolio').classList.add('hidden');
+                    }
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+
+            const sections = document.querySelectorAll('section');
+            const navLi = document.querySelectorAll('nav ul li a');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                const visibleSections = Array.from(sections).filter(sec => !sec.classList.contains('hidden'));
+                
+                visibleSections.forEach(section => {
+                    if (window.scrollY >= section.offsetTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLi.forEach(li => {
+                    li.classList.remove('active');
+                    if (li.getAttribute('href').includes(current)) {
+                        li.classList.add('active');
+                    }
+                });
+            });
+
+            // --- Portfolio Toggling Logic ---
+            const portfolioOverviewSection = document.getElementById('portfolio');
+            const detailedPortfolioSection = document.getElementById('detailed-portfolio');
+            
+            document.getElementById('seeAllProjectsBtn').addEventListener('click', () => {
+                portfolioOverviewSection.classList.add('hidden');
+                detailedPortfolioSection.classList.remove('hidden');
+                window.scrollTo({ top: detailedPortfolioSection.offsetTop - 70, behavior: 'smooth' });
+            });
+
+            document.getElementById('backToFeaturedBtn').addEventListener('click', () => {
+                detailedPortfolioSection.classList.add('hidden');
+                portfolioOverviewSection.classList.remove('hidden');
+                window.scrollTo({ top: portfolioOverviewSection.offsetTop - 70, behavior: 'smooth' });
+            });
+
+            // --- Admin Login Activation ---
+            let clickCount = 0;
+            let clickTimer = null;
+            document.getElementById('main-title').addEventListener('click', () => {
+                clickCount++;
+                if (clickTimer) clearTimeout(clickTimer);
+                clickTimer = setTimeout(() => { clickCount = 0; }, 500);
+
+                if (clickCount === 3) {
+                    clickCount = 0;
+                    if (isAdmin) return; // If already admin, do nothing
+                    // Show admin controls for potential sign-in
+                    document.getElementById('admin-controls').classList.remove('hidden');
+                }
+            });
+
+            //--- Sign In / Out Buttons ---
+            document.getElementById('signInBtn').addEventListener('click', () => {
+                showAuthModal();
+            });
+
+            document.getElementById('signOutBtn').addEventListener('click', async () => {
+                try {
+                    await signOut(auth);
+                    showMessageBox("Signed out successfully!");
+                } catch (error) {
+                    console.error("Error signing out:", error);
+                    showMessageBox(`Sign out failed: ${error.message}`);
+                }
+            });
+
+
+            // --- New Edit Controls Logic ---
+            // This listener handles showing/hiding the edit controls when editable elements are clicked
+            document.body.addEventListener('click', (e) => {
+                if (!isAdmin) return;
+
+                const editableEl = e.target.closest('.editable-text, .image-editable-wrapper, .add-image-area');
+
+                // If clicked outside an editable element or its controls, hide all controls
+                if (!e.target.closest('.editable-container, .image-editable-wrapper, .add-image-area, .edit-delete-controls, .image-edit-delete-controls, .add-image-btn')) {
+                    hideAllControls();
+                    return;
+                }
+                
+                // If an editable element was clicked, show its specific controls
+                if (editableEl) {
+                    hideAllControls(); // Hide all other controls first
+                    let controls;
+                    if(editableEl.matches('.editable-text')) controls = editableEl.closest('.editable-container').querySelector('.edit-delete-controls');
+                    if(editableEl.matches('.image-editable-wrapper')) controls = editableEl.querySelector('.image-edit-delete-controls');
+                    if(editableEl.matches('.add-image-area')) controls = editableEl.querySelector('.add-image-btn');
+                    
+                    if (controls) controls.classList.remove('hidden');
+                }
+            });
+
+
+            // --- Home page contact icon listeners ---
+            document.getElementById('homeEmailIcon').addEventListener('click', () => showMessageBox('mha.cia92@gmail.com'));
+            document.getElementById('homePhoneIcon').addEventListener('click', () => showMessageBox('(626) 466-5346'));
+            document.getElementById('homeLocationIcon').addEventListener('click', () => showMessageBox('La Puente, CA 91744'));
+
+            // --- Attach handlers to all buttons (including dynamically created ones) ---
+            attachListenersToElements(); // This is called initially and after dynamic content changes
+            initializeImagePreviewListeners();
+            setupAuthModalListeners(); 
+        }
+
+        // --- Helper to hide all visible edit controls ---
+        function hideAllControls() {
+            document.querySelectorAll('[contenteditable="true"]').forEach(el => {
+                el.setAttribute('contenteditable', 'false');
+                el.style.border = '';
+                el.style.padding = '';
+            });
+
+            document.querySelectorAll('.edit-delete-controls, .image-edit-delete-controls, .add-image-btn').forEach(c => {
+                if(!c.classList.contains('hidden')) c.classList.add('hidden');
+            });
+        }
+        
+        // --- Attach/Reattach event listeners to editable elements and their controls ---
+        function attachListenersToElements(){
+            document.querySelectorAll('.edit-btn').forEach(b => b.removeEventListener('click', handleEditButton)); // Prevent duplicate listeners
+            document.querySelectorAll('.edit-btn').forEach(b => b.addEventListener('click', handleEditButton));
+
+            document.querySelectorAll('.delete-btn').forEach(b => b.removeEventListener('click', handleDeleteButton));
+            document.querySelectorAll('.delete-btn').forEach(b => b.addEventListener('click', handleDeleteButton));
+
+            document.querySelectorAll('.align-btn').forEach(b => b.removeEventListener('click', handleAlignButton));
+            document.querySelectorAll('.align-btn').forEach(b => b.addEventListener('click', handleAlignButton));
+
+            document.querySelectorAll('.edit-image-btn').forEach(b => b.removeEventListener('click', handleEditImageButton));
+            document.querySelectorAll('.edit-image-btn').forEach(b => b.addEventListener('click', handleEditImageButton));
+
+            document.querySelectorAll('.delete-image-btn').forEach(b => b.removeEventListener('click', handleDeleteImageButton));
+            document.querySelectorAll('.delete-image-btn').forEach(b => b.addEventListener('click', handleDeleteImageButton));
+
+            document.querySelectorAll('.add-image-btn').forEach(b => b.removeEventListener('click', handleAddImageButton));
+            document.querySelectorAll('.add-image-btn').forEach(b => b.addEventListener('click', handleAddImageButton));
+        }
+
+        // --- Assigns unique IDs to elements that might not have them. Used mainly for initial setup and logging. ---
+        // For persistence, rely on static IDs in HTML or specific dynamic ID generation/storage.
+        function assignUniqueIDs() {
+            document.querySelectorAll('.editable-text:not([id]), .image-editable-wrapper img:not([id])').forEach((el, index) => {
+                if (el.id) return; // Skip if already has ID
+
+                const parentCard = el.closest('.project-detail-card');
+                let baseId = '';
+                if (parentCard && parentCard.id) {
+                    baseId = parentCard.id;
+                } else {
+                    // Fallback for elements not inside a project-detail-card or for initial placeholders
+                    const parentSection = el.closest('section');
+                    baseId = parentSection?.id || 'gen';
+                }
+                
+                let suffix = '';
+                if(el.classList.contains('editable-text')) {
+                    suffix = el.textContent.trim().substring(0,10).replace(/\s+/g, '-') || 'text';
+                } else if(el.tagName === 'IMG' && el.alt) {
+                    suffix = el.alt.trim().substring(0,10).replace(/\s+/g, '-') || 'img';
+                } else {
+                    suffix = 'el'; // Generic suffix if no better option
+                }
+                
+                el.id = `${baseId}-${suffix}-${index}`; // Ensure uniqueness with index
+            });
+        }
+
+        // --- Event Handlers for Edit Controls ---
+        function handleEditButton(e) {
+            e.stopPropagation();
+            const editableContainer = e.target.closest('.editable-container');
+            const editableText = editableContainer.querySelector('.editable-text');
+            const currentCaptionId = editableText.id; // Get the ID of the caption
+
+            editableText.setAttribute('contenteditable', 'true');
+            editableText.style.border = '1px solid #00bcd4';
+            editableText.style.padding = '2px';
+            editableText.focus();
+
+            const blurHandler = () => {
+                editableText.setAttribute('contenteditable', 'false');
+                editableText.style.border = '';
+                editableText.style.padding = '';
+                const currentContent = editableText.innerHTML;
+                const currentAlign = editableText.style.textAlign || null;
+
+                // Check if this is a dynamic image caption (part of dynamicContent)
+                const parentFigure = editableText.closest('.image-editable-wrapper');
+                if (parentFigure && parentFigure.querySelector('img').id.startsWith('img_')) {
+                    const imgId = parentFigure.querySelector('img').id;
+                    const projectCardId = parentFigure.closest('.project-detail-card')?.id;
+                    if (projectCardId) {
+                        saveData('dynamicGalleryImage', imgId, { 
+                            projectCardId: projectCardId, 
+                            url: parentFigure.querySelector('img').src, 
+                            caption: currentContent 
+                        });
+                    }
+                } else {
+                    // Save regular text content
+                    const currentData = { content: currentContent, align: currentAlign };
+                    saveData('text', currentCaptionId, currentData);
+                }
+                editableText.removeEventListener('blur', blurHandler);
+                hideAllControls();
+            };
+            editableText.addEventListener('blur', blurHandler);
+        }
+
+        function handleDeleteButton(e) {
+            e.stopPropagation();
+            const editableContainer = e.target.closest('.editable-container');
+            const editableText = editableContainer.querySelector('.editable-text');
+            const idToDelete = editableText.id;
+            
+            // Check if this is a dynamic image caption
+            const parentFigure = editableText.closest('.image-editable-wrapper');
+            if (parentFigure && parentFigure.querySelector('img').id.startsWith('img_')) {
+                const imgId = parentFigure.querySelector('img').id;
+                const projectCardId = parentFigure.closest('.project-detail-card')?.id;
+                if (projectCardId) {
+                    deleteData('dynamicGalleryImage', imgId, projectCardId);
+                    parentFigure.remove(); // Remove the entire figure element
+                }
+            } else {
+                editableText.innerHTML = ''; // Clear text content
+                deleteData('text', idToDelete);
+            }
+            hideAllControls();
+        }
+
+        function handleAlignButton(e) {
+            e.stopPropagation();
+            const editableContainer = e.target.closest('.editable-container');
+            const editableText = editableContainer.querySelector('.editable-text');
+            const alignType = e.currentTarget.dataset.align;
+            const currentCaptionId = editableText.id;
+
+            editableText.style.textAlign = alignType;
+            const currentContent = editableText.innerHTML;
+
+            // Check if this is a dynamic image caption
+            const parentFigure = editableText.closest('.image-editable-wrapper');
+            if (parentFigure && parentFigure.querySelector('img').id.startsWith('img_')) {
+                const imgId = parentFigure.querySelector('img').id;
+                const projectCardId = parentFigure.closest('.project-detail-card')?.id;
+                if (projectCardId) {
+                    saveData('dynamicGalleryImage', imgId, { 
+                        projectCardId: projectCardId, 
+                        url: parentFigure.querySelector('img').src, 
+                        caption: currentContent 
+                    });
+                }
+            } else {
+                const currentData = { content: currentContent, align: alignType };
+                saveData('text', currentCaptionId, currentData);
+            }
+            hideAllControls();
+        }
+
+        function handleEditImageButton(e) {
+            e.stopPropagation();
+            const imageWrapper = e.target.closest('.image-editable-wrapper');
+            const img = imageWrapper.querySelector('img');
+            const captionEl = imageWrapper.querySelector('figcaption .editable-text');
+            
+            showUrlPrompt((url) => {
+                if (url && (url.startsWith('http') || url.startsWith('https'))) {
+                    img.src = url;
+                    // If it's a dynamic image, update its data including caption
+                    if (img.id.startsWith('img_')) {
+                        const projectCardId = imageWrapper.closest('.project-detail-card')?.id;
+                        if (projectCardId) {
+                            saveData('dynamicGalleryImage', img.id, { 
+                                projectCardId: projectCardId, 
+                                url: url, 
+                                caption: captionEl ? captionEl.innerHTML : '' 
+                            });
+                        }
+                    } else {
+                        // For static images, just update the URL
+                        saveData('images', img.id, url);
+                    }
+                } else if (url) {
+                    showMessageBox("Invalid URL. Please provide a full link starting with http or https.");
+                }
+                hideMessageBox();
+            });
+            hideAllControls();
+        }
+
+        function handleDeleteImageButton(e) {
+            e.stopPropagation();
+            const imageWrapper = e.target.closest('.image-editable-wrapper');
+            const img = imageWrapper.querySelector('img');
+            
+            // Check if it's a dynamic image (recreated from Firestore)
+            if(img.id.startsWith('img_')) {
+                const projectCardId = imageWrapper.closest('.project-detail-card')?.id;
+                if (projectCardId) {
+                    deleteData('dynamicGalleryImage', img.id, projectCardId);
+                    imageWrapper.remove(); // Remove the element from DOM
+                }
+            }
+            // For static HTML images (profilePhoto, featured project images)
+            else if(img.id.includes('-work-image') || img.id === 'profilePhoto' || img.id.includes('studio-projects-image') || img.id.includes('personal-work-image')){
+                let placeholderText = img.alt.replace(' Image', "").replace(' - Profile Photo', "");
+                const newSrc = `https://placehold.co/600x400/2e3a51/00bcd4?text=${encodeURIComponent(placeholderText)}`;
+                img.src = newSrc;
+                saveData('images', img.id, newSrc);
+            } else { // Fallback for other unexpected static images
+                // Consider how to handle other static images if they might be deleted
+                // For now, let's just clear the source
+                img.src = '';
+                deleteData('images', img.id);
+            }
+            hideAllControls();
+        }
+
+        function handleAddImageButton(e) {
+            e.stopPropagation();
+            const projectDetailCard = e.target.closest('.project-detail-card');
+            const imageGallery = projectDetailCard.querySelector('.image-gallery');
+            const projectCardId = projectDetailCard.id; // Get the ID of the parent project card
+
+            if (!projectCardId) {
+                showMessageBox("Error: Could not determine parent project for image. Please ensure project cards have unique IDs.");
+                return;
+            }
+
+            showUrlPrompt((url) => {
+                if (url && (url.startsWith('http') || url.startsWith('https'))) {
+                    const imgId = `img_${Date.now()}`; // Unique ID for the new image
+                    const captionId = `caption-${imgId}`; // Unique ID for its caption
+
+                    // Create the new figure element
+                    const newFigure = document.createElement('figure');
+                    newFigure.className = 'image-editable-wrapper';
+                    newFigure.innerHTML = `
+                        <img src="${url}" alt="Uploaded Image" class="w-full h-auto rounded-lg" id="${imgId}">
+                        <figcaption class="editable-container justify-center">
+                            <p class="editable-text" contenteditable="false" id="${captionId}"></p>
+                            <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
+                        </figcaption>
+                        <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                    `;
+                    imageGallery.appendChild(newFigure);
+
+                    // Save the new image data to Firestore, linked to its project card
+                    saveData('dynamicGalleryImage', imgId, { 
+                        projectCardId: projectCardId, 
+                        url: url, 
+                        caption: '' // Initial empty caption
+                    });
+                    
+                    // Re-attach listeners for the new elements to make them editable immediately
+                    attachListenersToElements();
+                } else if (url) {
+                    showMessageBox("Invalid URL. Please provide a full link starting with http or https.");
+                }
+                hideMessageBox();
+            });
+        }
+
+
+        // --- Modal/Message Box Logic ---
+        function showMessageBox(message) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.querySelector('#messageText').textContent = message;
+            messageBox.querySelector('#pinInput').classList.add('hidden');
+            messageBox.querySelector('#urlInput').classList.add('hidden');
+            messageBox.classList.remove('hidden');
+            messageBox.addEventListener('click', hideMessageBoxOnClickOutside);
+        }
+
+        function hideMessageBox() {
+            const messageBox = document.getElementById('messageBox');
+            activeModalAction = null;
+            messageBox.removeEventListener('click', hideMessageBoxOnClickOutside);
+            messageBox.classList.add('hidden');
+        }
+
+        function hideMessageBoxOnClickOutside(e) { if(e.target.id === 'messageBox') hideMessageBox(); }
+
+        // This function is currently not used, as admin controls are shown directly on triple-click.
+        // Keeping it for reference based on previous versions.
+        function showPinPrompt(onPinCorrect, onPinIncorrect) {
+            const messageBox = document.getElementById('messageBox');
+            const pinInput = messageBox.querySelector('#pinInput');
+            messageBox.querySelector('#messageText').textContent = "Enter PIN";
+            pinInput.value = '';
+            pinInput.classList.remove('hidden');
+            messageBox.classList.remove('hidden');
+            pinInput.focus();
+            
+            const CORRECT_PIN = "1234"; // Example PIN - REPLACE WITH A SECURE METHOD FOR PRODUCTION!
+
+            activeModalAction = () => {
+                if (pinInput.value === CORRECT_PIN) { onPinCorrect(); } else { onPinIncorrect(); }
+                hideMessageBox();
+            };
+            messageBox.addEventListener('click', hideMessageBoxOnClickOutside);
+        }
+
+        function showUrlPrompt(callback) {
+            const messageBox = document.getElementById('messageBox');
+            const urlInput = messageBox.querySelector('#urlInput');
+            messageBox.querySelector('#messageText').textContent = "Paste Image URL";
+            urlInput.value = "";
+            urlInput.classList.remove('hidden');
+            messageBox.classList.remove('hidden');
+            urlInput.focus();
+            activeModalAction = () => { callback(urlInput.value); };
+            messageBox.addEventListener('click', hideMessageBoxOnClickOutside);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            const messageBox = document.getElementById('messageBox');
+            if (messageBox.classList.contains('hidden') || e.key !== 'Enter') return;
+            
+            if (document.activeElement.id === 'pinInput' || document.activeElement.id === 'urlInput') {
+                e.preventDefault();
+                if (activeModalAction) activeModalAction();
+            }
+        });
+
+        // --- Image Preview Logic ---
+        function initializeImagePreviewListeners() {
+            const modal = document.getElementById('imagePreviewModal');
+            const modalImg = document.getElementById('imagePreviewImg');
+            
+            document.getElementById('detailed-portfolio').addEventListener('click', (e) => {
+                // Ensure the clicked element is an image within an image-gallery
+                if (e.target.tagName === 'IMG' && e.target.closest('.image-gallery')) {
+                    // Don't trigger preview in admin mode when clicking on editable images
+                    // (prevents conflict with edit controls)
+                    if (isAdmin && e.target.closest('.image-editable-wrapper')) return; 
+                    
+                    modalImg.src = e.target.src;
+                    modal.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
+                }
+            });
+
+            // Close modal when clicked anywhere on it
+            modal.addEventListener('click', () => {
+                modal.classList.add('hidden', 'opacity-0', 'pointer-events-none');
+                modalImg.src = ""; // Clear image source
+            });
+        }
+
+        // --- Auth Modal Logic (Sign In/Sign Up) ---
+        function showAuthModal() {
+            document.getElementById('authModal').classList.remove('hidden');
+            document.getElementById('authEmail').value = '';
+            document.getElementById('authPassword').value = '';
+            document.getElementById('authName').value = ''; 
+            document.getElementById('authConfirmPassword').value = ''; 
+            
+            // Default to Sign In tab when showing the modal
+            setActiveAuthTab('signIn');
+        }
+
+        function hideAuthModal() {
+            document.getElementById('authModal').classList.add('hidden');
+        }
+
+        function setActiveAuthTab(tabName) {
+            currentAuthTab = tabName;
+            
+            const signInToggleBtn = document.getElementById('signInToggleBtn');
+            const signUpToggleBtn = document.getElementById('signUpToggleBtn');
+            const nameField = document.getElementById('nameField');
+            const confirmPasswordField = document.getElementById('confirmPasswordField');
+
+            if (tabName === 'signIn') {
+                signInToggleBtn.classList.add('active');
+                signUpToggleBtn.classList.remove('active');
+                nameField.classList.add('hidden');
+                confirmPasswordField.classList.add('hidden');
+            } else { // Sign Up
+                signUpToggleBtn.classList.add('active');
+                signInToggleBtn.classList.remove('active');
+                nameField.classList.remove('hidden');
+                confirmPasswordField.classList.remove('hidden');
+            }
+        }
+
+        function setupAuthModalListeners() {
+            document.getElementById('closeAuthModal').addEventListener('click', hideAuthModal);
+            document.getElementById('signInToggleBtn').addEventListener('click', () => setActiveAuthTab('signIn'));
+            document.getElementById('signUpToggleBtn').addEventListener('click', () => setActiveAuthTab('signUp'));
+            
+            document.getElementById('authModal').addEventListener('click', (e) => {
+                if (e.target.id === 'authModal') {
+                    hideAuthModal();
+                }
+            });
+
+            document.getElementById('authSubmitBtn').addEventListener('click', async () => {
+                const email = document.getElementById('authEmail').value;
+                const password = document.getElementById('authPassword').value;
+                let name = '';
+                let confirmPassword = '';
+
+                if (currentAuthTab === 'signUp') {
+                    name = document.getElementById('authName').value;
+                    confirmPassword = document.getElementById('authConfirmPassword').value;
+                }
+
+                if (!email || !password) {
+                    showMessageBox("Please enter both email and password.");
+                    return;
+                }
+
+                if (currentAuthTab === 'signUp' && password !== confirmPassword) {
+                    showMessageBox("Passwords do not match!");
+                    return;
+                }
+
+                if (currentAuthTab === 'signUp') {
+                    try {
+                        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                        if (name) {
+                            await updateProfile(userCredential.user, { displayName: name });
+                        }
+                        showMessageBox("Sign Up Successful! Welcome " + (name || email) + "!");
+                        hideAuthModal();
+                    } catch (error) {
+                        console.error("Sign Up Error:", error);
+                        let errorMessage = "Sign up failed.";
+                        if (error.code === 'auth/email-already-in-use') {
+                            errorMessage = "The email address is already in use by another account.";
+                        } else if (error.code === 'auth/invalid-email') {
+                            errorMessage = "The email address is not valid.";
+                        } else if (error.code === 'auth/weak-password') {
+                            errorMessage = "The password is too weak (should be at least 6 characters).";
+                        }
+                        showMessageBox(errorMessage);
+                    }
+                } else { // Sign In
+                    try {
+                        await signInWithEmailAndPassword(auth, email, password);
+                        showMessageBox("Sign In Successful! Welcome back!");
+                        hideAuthModal();
+                    } catch (error) {
+                        console.error("Sign In Error:", error);
+                        let errorMessage = "Sign in failed.";
+                        if (error.code === 'auth/invalid-credential') {
+                            errorMessage = "Invalid email or password.";
+                        } else if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+                            errorMessage = "Invalid email or password."; // Generic message for security
+                        }
+                        showMessageBox(errorMessage);
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
