@@ -492,8 +492,10 @@
     <main class="pt-16">
         <!-- Home Section -->
         <section id="home" class="relative flex flex-col md:flex-row-reverse items-center justify-center min-h-screen px-4 md:px-8 py-8 bg-[#1a1a2e] text-white rounded-b-3xl" style="top: -11px;">
-            <div id="auth-container" class="absolute top-5 right-5 z-20 flex flex-col items-end gap-2">
-                <button id="signInBtn" class="text-sm font-semibold text-cyan-400 hover:underline hidden">Sign In</button>
+            <div id="auth-container" class="absolute top-5 right-5 z-20 flex items-center gap-2">
+                <div id="signInIcon" class="social-icon hidden">
+                    <i class="fas fa-sign-in-alt"></i>
+                </div>
                 <button id="signOutBtn" class="hidden btn-primary bg-red-500 hover:bg-red-700 px-4 py-2 rounded-full text-sm font-semibold">Sign Out</button>
             </div>
             <div class="md:w-1/2 flex flex-col items-end md:text-right mb-6 md:mb-0 md:pt-0 pr-8">
@@ -1037,6 +1039,94 @@
                 </div>
             </div>
 
+            <div class="project-category text-right">
+                <div class="editable-container justify-end">
+                    <h3 class="text-2xl font-bold section-title editable-text" contenteditable="false">Personal / Competitions</h3>
+                    <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
+                </div>
+            </div>
+            <div id="personal-projects-container" class="grid grid-cols-1 gap-8 mt-6">
+                <!-- Project Card 1: Retaining Wall -->
+                <div class="project-detail-card">
+                    <div class="editable-container justify-end">
+                        <h4 id="personal-project-1-title" class="text-xl font-bold text-cyan-300 mb-2 editable-text" contenteditable="false">Backyard Retaining Wall Landscaping</h4>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
+                    </div>
+                    <div class="editable-container justify-end">
+                        <p id="personal-project-1-year" class="text-sm text-gray-400 mb-1 editable-text" contenteditable="false">Year: 2022 | Type: Personal Project</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
+                    </div>
+                    <div class="editable-container justify-end">
+                        <p id="personal-project-1-desc" class="text-base leading-relaxed text-justify mb-4 editable-text" contenteditable="false">Designed and executed a complete backyard renovation, including a custom-built hillside retaining wall to create tiered garden beds. The project involved site grading, material selection, and hands-on construction of the wall and surrounding landscape features.</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
+                    </div>
+                    <div class="editable-container justify-end">
+                        <p id="personal-project-1-role" class="text-sm mb-2 editable-text" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Designer & Builder</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
+                    </div>
+                    <div class="editable-container justify-end">
+                        <p id="personal-project-1-tools" class="text-sm mb-4 editable-text" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> SketchUp, Hand Tools, Power Tools</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
+                    </div>
+                    <div class="image-gallery">
+                        <figure class="image-editable-wrapper"><img id="retaining-wall-img-1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Retaining+Wall+Before" alt="Retaining Wall Before">
+                            <figcaption class="editable-container justify-center">
+                                <p class="editable-text" contenteditable="false" id="caption-retaining-wall-1"></p>
+                                <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
+                            </figcaption>
+                            <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                        </figure>
+                        <figure class="image-editable-wrapper"><img id="retaining-wall-img-2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Retaining+Wall+After" alt="Retaining Wall After">
+                            <figcaption class="editable-container justify-center">
+                                <p class="editable-text" contenteditable="false" id="caption-retaining-wall-2"></p>
+                                <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
+                            </figcaption>
+                            <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                        </figure>
+                    </div>
+                    <div class="add-image-area"><button class="add-image-btn hidden"><i class="fas fa-plus"></i></button></div>
+                </div>
+                <!-- Project Card 2: Chicken Coop -->
+                <div class="project-detail-card">
+                    <div class="editable-container justify-end">
+                        <h4 id="personal-project-2-title" class="text-xl font-bold text-cyan-300 mb-2 editable-text" contenteditable="false">Custom Chicken Coop Design & Build</h4>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
+                    </div>
+                    <div class="editable-container justify-end">
+                        <p id="personal-project-2-year" class="text-sm text-gray-400 mb-1 editable-text" contenteditable="false">Year: 2021 | Type: Personal Project</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
+                    </div>
+                    <div class="editable-container justify-end">
+                        <p id="personal-project-2-desc" class="text-base leading-relaxed text-justify mb-4 editable-text" contenteditable="false">Designed and constructed a functional and aesthetically pleasing chicken coop from scratch. The project focused on using reclaimed materials and ensuring a safe, comfortable, and easy-to-clean environment for the chickens.</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
+                    </div>
+                    <div class="editable-container justify-end">
+                        <p id="personal-project-2-role" class="text-sm mb-2 editable-text" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Designer & Builder</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
+                    </div>
+                    <div class="editable-container justify-end">
+                        <p id="personal-project-2-tools" class="text-sm mb-4 editable-text" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> Woodworking Tools, Reclaimed Materials</p>
+                        <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
+                    </div>
+                    <div class="image-gallery">
+                        <figure class="image-editable-wrapper"><img id="chicken-coop-img-1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Coop+Design" alt="Chicken Coop Design">
+                            <figcaption class="editable-container justify-center">
+                                <p class="editable-text" contenteditable="false" id="caption-chicken-coop-1"></p>
+                                <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
+                            </figcaption>
+                            <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                        </figure>
+                        <figure class="image-editable-wrapper"><img id="chicken-coop-img-2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Finished+Coop" alt="Finished Chicken Coop">
+                            <figcaption class="editable-container justify-center">
+                                <p class="editable-text" contenteditable="false" id="caption-chicken-coop-2"></p>
+                                <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
+                            </figcaption>
+                            <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                        </figure>
+                    </div>
+                    <div class="add-image-area"><button class="add-image-btn hidden"><i class="fas fa-plus"></i></button></div>
+                </div>
+            </div>
         </section>
 
         <!-- Contact Section -->
@@ -1114,6 +1204,10 @@
                     <input type="password" id="authConfirmPassword" placeholder="Confirm Password" class="input-field">
                 </div>
 
+                <!-- Forgot Password Link -->
+                <div class="text-right mb-4">
+                    <button id="forgotPasswordBtn" class="text-sm text-cyan-400 hover:underline">Forgot Password?</button>
+                </div>
 
                 <!-- Buttons: Sign In/Sign Up toggle and Submit -->
                 <div class="flex justify-end items-center space-x-3">
@@ -1142,6 +1236,7 @@
             signInAnonymously,
             createUserWithEmailAndPassword,
             signInWithEmailAndPassword,
+            sendPasswordResetEmail,
             updateProfile
         } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import {
@@ -1163,7 +1258,6 @@
         let currentAuthTab = 'signIn';
 
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'portfolio-minhtetaung';
-        // NEW: Reference to a collection for page content instead of a single document
         const contentCollectionRef = () => collection(db, `artifacts/${appId}/public/data/page_content`);
 
 
@@ -1172,12 +1266,13 @@
             try {
                 const firebaseConfig = typeof __firebase_config !== 'undefined' ?
                     JSON.parse(__firebase_config) : {
-                        apiKey: "YOUR_API_KEY",
-                        authDomain: "YOUR_AUTH_DOMAIN",
-                        projectId: "YOUR_PROJECT_ID",
-                        storageBucket: "YOUR_STORAGE_BUCKET",
-                        messagingSenderId: "YOUR_SENDER_ID",
-                        appId: "YOUR_APP_ID"
+                        apiKey: "AIzaSyAKc_z-3OhB8ytDAHP3tOoI75cgPyPY_7M",
+                        authDomain: "portfolio-d24d0.firebaseapp.com",
+                        projectId: "portfolio-d24d0",
+                        storageBucket: "portfolio-d24d0.firebasestorage.app",
+                        messagingSenderId: "1087561111526",
+                        appId: "1:1087561111526:web:8193c92f4a54023f9d6827",
+			measurementId: "G-PT08WG9QY7"
                     };
 
                 app = initializeApp(firebaseConfig);
@@ -1192,17 +1287,15 @@
 
         function setupAuthListener() {
             onAuthStateChanged(auth, async (user) => {
-                const authContainer = document.getElementById('auth-container');
-                const signInBtn = document.getElementById('signInBtn');
+                const signInIcon = document.getElementById('signInIcon');
                 const signOutBtn = document.getElementById('signOutBtn');
 
-                authContainer.classList.remove('hidden');
                 isAdmin = false;
                 document.body.classList.remove('admin-mode');
                 hideAllControls();
 
                 if (user && !user.isAnonymous) {
-                    signInBtn.classList.add('hidden');
+                    signInIcon.classList.add('hidden');
                     signOutBtn.classList.remove('hidden');
 
                     try {
@@ -1218,7 +1311,7 @@
                         showMessageBox("Could not verify user role.");
                     }
                 } else {
-                    signInBtn.classList.remove('hidden');
+                    signInIcon.classList.add('hidden');
                     signOutBtn.classList.add('hidden');
 
                     if (!user) {
@@ -1241,7 +1334,6 @@
 
 
         // --- Data Persistence (Firestore) ---
-        // REWRITTEN: Load from a collection of documents
         async function loadContentFromFirestore() {
             if (!auth.currentUser) {
                 console.log("No authenticated user, skipping Firestore load.");
@@ -1269,7 +1361,6 @@
             }
         }
 
-        // REWRITTEN: Save to a specific document in the collection
         async function saveData(elementId, data) {
             if (!isAdmin || !elementId) return;
             try {
@@ -1283,7 +1374,6 @@
             }
         }
 
-        // REWRITTEN: Delete a specific document from the collection
         async function deleteData(elementId) {
             if (!isAdmin || !elementId) return;
             try {
@@ -1387,13 +1477,13 @@
                 if (clickCount === 3) {
                     clickCount = 0;
                     if (auth.currentUser && !auth.currentUser.isAnonymous) return;
-                    showAuthModal();
+                    document.getElementById('signInIcon').classList.remove('hidden');
                 }
             });
 
 
             //--- Sign In / Out Buttons ---
-            document.getElementById('signInBtn').addEventListener('click', () => {
+            document.getElementById('signInIcon').addEventListener('click', () => {
                 showAuthModal();
             });
 
@@ -1736,17 +1826,21 @@
             const signUpToggleBtn = document.getElementById('signUpToggleBtn');
             const nameField = document.getElementById('nameField');
             const confirmPasswordField = document.getElementById('confirmPasswordField');
+            const forgotPasswordBtn = document.getElementById('forgotPasswordBtn').parentElement;
+
 
             if (tabName === 'signIn') {
                 signInToggleBtn.classList.add('active');
                 signUpToggleBtn.classList.remove('active');
                 nameField.classList.add('hidden');
                 confirmPasswordField.classList.add('hidden');
+                forgotPasswordBtn.classList.remove('hidden');
             } else {
                 signUpToggleBtn.classList.add('active');
                 signInToggleBtn.classList.remove('active');
                 nameField.classList.remove('hidden');
                 confirmPasswordField.classList.remove('hidden');
+                forgotPasswordBtn.classList.add('hidden');
             }
         }
 
@@ -1758,6 +1852,29 @@
             document.getElementById('authModal').addEventListener('click', (e) => {
                 if (e.target.id === 'authModal') {
                     hideAuthModal();
+                }
+            });
+            
+            document.getElementById('forgotPasswordBtn').addEventListener('click', async () => {
+                const email = document.getElementById('authEmail').value;
+                if (!email) {
+                    showMessageBox("Please enter your email address to reset your password.");
+                    return;
+                }
+
+                try {
+                    await sendPasswordResetEmail(auth, email);
+                    hideAuthModal();
+                    showMessageBox(`A password reset link has been sent to ${email}. Please check your inbox.`);
+                } catch (error) {
+                    console.error("Password Reset Error:", error);
+                    let errorMessage = "Failed to send password reset email.";
+                     if (error.code === 'auth/invalid-email') {
+                        errorMessage = "The email address is not valid.";
+                    } else if (error.code === 'auth/user-not-found') {
+                        errorMessage = "No user found with this email address.";
+                    }
+                    showMessageBox(errorMessage);
                 }
             });
 
