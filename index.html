@@ -1267,12 +1267,12 @@
                 const firebaseConfig = typeof __firebase_config !== 'undefined' ?
                     JSON.parse(__firebase_config) : {
                         apiKey: "AIzaSyAKc_z-3OhB8ytDAHP3tOoI75cgPyPY_7M",
-                        authDomain: "portfolio-d24d0.firebaseapp.com",
-                        projectId: "portfolio-d24d0",
-                        storageBucket: "portfolio-d24d0.firebasestorage.app",
-                        messagingSenderId: "1087561111526",
-                        appId: "1:1087561111526:web:8193c92f4a54023f9d6827",
-			measurementId: "G-PT08WG9QY7"
+  			authDomain: "portfolio-d24d0.firebaseapp.com",
+  			projectId: "portfolio-d24d0",
+  			storageBucket: "portfolio-d24d0.firebasestorage.app",
+  			messagingSenderId: "1087561111526",
+  			appId: "1:1087561111526:web:8193c92f4a54023f9d6827",
+  			measurementId: "G-PT08WG9QY7"
                     };
 
                 app = initializeApp(firebaseConfig);
@@ -1286,7 +1286,20 @@
         }
 
         function setupAuthListener() {
+            // Set a timeout to handle anonymous login if no user is found after a delay.
+            let authTimer = setTimeout(async () => {
+                if (!auth.currentUser) {
+                    try {
+                        await signInAnonymously(auth);
+                    } catch (error) {
+                        console.error("Delayed anonymous sign-in failed:", error);
+                    }
+                }
+            }, 1500); // 1.5 second delay
+
             onAuthStateChanged(auth, async (user) => {
+                clearTimeout(authTimer); // Clear the timeout as soon as the listener fires.
+
                 const signInIcon = document.getElementById('signInIcon');
                 const signOutBtn = document.getElementById('signOutBtn');
 
@@ -1295,9 +1308,11 @@
                 hideAllControls();
 
                 if (user && !user.isAnonymous) {
+                    // A real user is signed in.
                     signInIcon.classList.add('hidden');
                     signOutBtn.classList.remove('hidden');
 
+                    // Check for admin role in Firestore.
                     try {
                         const userDocRef = doc(db, "users", user.uid);
                         const userDocSnap = await getDoc(userDocRef);
@@ -1311,19 +1326,12 @@
                         showMessageBox("Could not verify user role.");
                     }
                 } else {
-                    signInIcon.classList.add('hidden');
+                    // User is anonymous or logged out.
+                    signInIcon.classList.add('hidden'); // Keep sign-in hidden by default
                     signOutBtn.classList.add('hidden');
-
-                    if (!user) {
-                        try {
-                            await signInAnonymously(auth);
-                            return;
-                        } catch (error) {
-                            console.error("Anonymous sign-in failed:", error);
-                        }
-                    }
                 }
 
+                // Initialize the main app content once, after the auth state is confirmed.
                 if (!isAppInitialized) {
                     isAppInitialized = true;
                     await loadContentFromFirestore();
