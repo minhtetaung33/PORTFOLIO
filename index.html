@@ -1259,6 +1259,7 @@
 
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'portfolio-minhtetaung';
         const contentCollectionRef = () => collection(db, `artifacts/${appId}/public/data/page_content`);
+        const userDocRef = (uid) => doc(db, "users", uid);
 
 
         // --- Firebase Initialization
@@ -1266,7 +1267,7 @@
             try {
                 const firebaseConfig = typeof __firebase_config !== 'undefined' ?
                     JSON.parse(__firebase_config) : {
-                         apiKey: "AIzaSyAKc_z-3OhB8ytDAHP3tOoI75cgPyPY_7M",
+                        apiKey: "AIzaSyAKc_z-3OhB8ytDAHP3tOoI75cgPyPY_7M",
   			authDomain: "portfolio-d24d0.firebaseapp.com",
   			projectId: "portfolio-d24d0",
   			storageBucket: "portfolio-d24d0.firebasestorage.app",
@@ -1296,21 +1297,16 @@
                 hideAllControls();
 
                 if (user) {
-                    // A user is detected. It could be anonymous or a real user.
                     if (user.isAnonymous) {
-                        signInIcon.classList.add('hidden'); // Keep hidden for anonymous
+                        signInIcon.classList.add('hidden'); 
                         signOutBtn.classList.add('hidden');
                     } else {
-                        // It's a real, signed-in user.
                         signInIcon.classList.add('hidden');
                         signOutBtn.classList.remove('hidden');
 
-                        // Check for admin role
                         try {
-                            const userDocRef = doc(db, "users", user.uid);
-                            const userDocSnap = await getDoc(userDocRef);
-
-                            if (userDocSnap.exists() && userDocSnap.data().role === 'admin') {
+                            const docSnap = await getDoc(userDocRef(user.uid));
+                            if (docSnap.exists() && docSnap.data().role === 'admin') {
                                 isAdmin = true;
                                 document.body.classList.add('admin-mode');
                             }
@@ -1319,10 +1315,8 @@
                         }
                     }
                 } else {
-                    // No user detected at all. Sign in anonymously.
                     try {
                         await signInAnonymously(auth);
-                        // The onAuthStateChanged listener will fire again with the new anonymous user.
                     } catch (error) {
                         console.error("Anonymous sign-in failed:", error);
                     }
@@ -1339,10 +1333,6 @@
 
         // --- Data Persistence (Firestore) ---
         async function loadContentFromFirestore() {
-            if (!auth.currentUser) {
-                console.log("No authenticated user, skipping Firestore load.");
-                return;
-            }
             try {
                 const querySnapshot = await getDocs(contentCollectionRef());
                 querySnapshot.forEach((docSnap) => {
@@ -1361,7 +1351,7 @@
                 });
             } catch (error) {
                 console.error("Error loading content:", error);
-                showMessageBox("Failed to load portfolio data.");
+                showMessageBox("Failed to load portfolio data. Displaying default content.");
             }
         }
 
@@ -1914,8 +1904,8 @@
                             });
                         }
 
-                        const userDocRef = doc(db, "users", user.uid);
-                        await setDoc(userDocRef, {
+                        const docRef = userDocRef(user.uid);
+                        await setDoc(docRef, {
                             email: user.email,
                             role: 'viewer'
                         });
