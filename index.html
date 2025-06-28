@@ -1506,22 +1506,25 @@
 
             // --- New Edit Logic ---
             document.body.addEventListener('click', (e) => {
-                if (!isAdmin) return;
+                 if (!isAdmin) return;
+
+                const clickedOnControls = e.target.closest('.edit-delete-controls, .image-edit-delete-controls');
+                if (clickedOnControls) {
+                    return; // Do nothing if a control button was clicked
+                }
 
                 const editableEl = e.target.closest('.editable-text, .image-editable-wrapper, .add-image-area');
 
-                if (!e.target.closest('.editable-container, .image-editable-wrapper, .add-image-area, .edit-delete-controls, .image-edit-delete-controls, .add-image-btn, .save-btn')) {
-                    hideAllControls();
-                    return;
-                }
-
-
                 if (editableEl) {
+                    // If we are clicking a new editable element, hide all other controls first
                     const controls = editableEl.closest('.editable-container, .image-editable-wrapper, .project-detail-card').querySelector('.edit-delete-controls, .image-edit-delete-controls, .add-image-btn');
                     if(controls && controls.classList.contains('hidden')){
                          hideAllControls(); 
                          controls.classList.remove('hidden');
                     }
+                } else {
+                    // If we clicked outside any editable area, hide everything
+                    hideAllControls();
                 }
             });
 
@@ -1545,14 +1548,17 @@
                 el.setAttribute('contenteditable', 'false');
                 el.style.border = '';
                 el.style.padding = '';
+                 const controls = el.closest('.editable-container').querySelector('.edit-delete-controls');
+                 if(controls){
+                    controls.querySelector('.edit-btn').classList.remove('hidden');
+                    controls.querySelector('.save-btn').classList.add('hidden');
+                 }
             });
 
             document.querySelectorAll('.edit-delete-controls, .image-edit-delete-controls, .add-image-btn').forEach(c => {
                 if (!c.classList.contains('hidden')) c.classList.add('hidden');
             });
 
-            document.querySelectorAll('.save-btn').forEach(b => b.classList.add('hidden'));
-            document.querySelectorAll('.edit-btn').forEach(b => b.classList.remove('hidden'));
         }
 
 
