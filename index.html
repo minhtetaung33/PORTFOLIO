@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -104,13 +105,13 @@
             background-color: #2e3a51;
             border-radius: 12px;
         }
-        
+
         .experience-item {
             border-right: 3px solid #00bcd4;
             border-left: none;
         }
 
-        .experience-item .absolute {
+        .experience-item.absolute {
             right: -2px;
             left: auto;
         }
@@ -152,12 +153,12 @@
             margin-bottom: 2rem;
             position: relative;
         }
-        
+
         .project-detail-card:not(.admin-mode) {
-             cursor: default;
+            cursor: default;
         }
 
-        body.admin-mode .project-detail-card {
+        .admin-mode .project-detail-card {
             cursor: pointer;
         }
 
@@ -194,20 +195,30 @@
         #messageBox.hidden {
             animation: fadeOut 0.3s ease-out forwards;
         }
-        
+
         #imagePreviewModal {
             transition: opacity 0.3s ease;
             cursor: pointer;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
+            from {
+                opacity: 1;
+            }
+
+            to {
+                opacity: 0;
+            }
         }
 
         .bluebeam-icon {
@@ -215,7 +226,7 @@
             height: 3rem;
             margin-bottom: 0.5rem;
         }
-        
+
         .editable-container {
             position: relative;
             margin-bottom: 0.5rem;
@@ -229,9 +240,9 @@
             min-width: 0;
             word-wrap: break-word;
         }
-        
-        body.admin-mode .editable-text,
-        body.admin-mode .image-editable-wrapper {
+
+        .admin-mode .editable-text,
+        .admin-mode .image-editable-wrapper {
             cursor: pointer;
         }
 
@@ -246,14 +257,14 @@
             background-color: #2e3a51;
             border-radius: 8px;
             padding: 0.25rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             z-index: 10;
             display: flex;
             margin-left: 0.5rem;
             flex-shrink: 0;
             gap: 0.25rem;
         }
-        
+
         .edit-delete-controls.hidden {
             display: none;
         }
@@ -268,42 +279,53 @@
             border-radius: 9999px;
             transition: background-color 0.2s ease;
         }
-        
+
         .edit-delete-controls .edit-btn {
             background-color: #00bcd4;
             color: #1a1a2e;
         }
+
         .edit-delete-controls .edit-btn:hover {
             background-color: #0097a7;
         }
+
         .edit-delete-controls .save-btn {
-            background-color: #3b82f6; /* Blue */
+            background-color: #3b82f6;
+            /* Blue */
             color: #fff;
         }
+
         .edit-delete-controls .save-btn:hover {
             background-color: #2563eb;
         }
+
         .edit-delete-controls .delete-btn {
-            background-color: #ef4444; /* Red */
+            background-color: #ef4444;
+            /* Red */
             color: #fff;
         }
+
         .edit-delete-controls .delete-btn:hover {
             background-color: #dc2626;
         }
+
         .edit-delete-controls .align-btn {
             background-color: #60a5fa;
             color: #1a1a2e;
         }
+
         .edit-delete-controls .align-btn:hover {
             background-color: #3b82f6;
         }
-        
+
         .project-detail-card .editable-text {
             text-align: right;
         }
+
         .project-detail-card p.text-justify.editable-text {
             text-align: justify;
         }
+
         .image-gallery figcaption.editable-text {
             text-align: center;
         }
@@ -319,14 +341,16 @@
             background-color: rgba(46, 58, 81, 0.8);
             border-radius: 8px;
             padding: 0.25rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
             z-index: 20;
             display: flex;
             gap: 0.25rem;
         }
+
         .image-edit-delete-controls.hidden {
             display: none;
         }
+
         .image-edit-delete-controls button {
             width: 32px;
             height: 32px;
@@ -339,31 +363,37 @@
             border: none;
             cursor: pointer;
         }
-        .image-edit-delete-controls .add-image-btn-inline {
-            background-color: #3b82f6; /* Blue */
-            color: #fff;
-        }
-        .image-edit-delete-controls .add-image-btn-inline:hover {
-             background-color: #2563eb;
-             transform: scale(1.1);
-        }
+
         .image-edit-delete-controls .edit-image-btn {
             background-color: #00bcd4;
             color: #1a1a2e;
         }
+
         .image-edit-delete-controls .edit-image-btn:hover {
             background-color: #0097a7;
             transform: scale(1.1);
         }
+
         .image-edit-delete-controls .delete-image-btn {
             background-color: #ef4444;
             color: #fff;
         }
+
         .image-edit-delete-controls .delete-image-btn:hover {
             background-color: #dc2626;
             transform: scale(1.1);
         }
-        
+
+        .image-edit-delete-controls .add-image-btn {
+            background-color: #4ade80; /* Green */
+            color: #1a1a2e;
+        }
+
+        .image-edit-delete-controls .add-image-btn:hover {
+            background-color: #22c55e;
+            transform: scale(1.1);
+        }
+
         #messageBox #pinInput,
         #messageBox #urlInput {
             background-color: #1a1a2e;
@@ -377,9 +407,9 @@
         }
         
         .experience-item li {
-             padding-right: 1rem;
+            padding-right: 1rem;
         }
-
+        
         .experience-item li .editable-container {
             width: calc(100% - 1rem);
             margin-left: auto;
@@ -398,7 +428,7 @@
         #authModal .input-field::placeholder {
             color: #a0a0a0;
         }
-
+        
         #authModal .auth-toggle-btn {
             background-color: #2e3a51; /* Darker blue-gray */
             border: 1px solid #00bcd4; /* Cyan border */
@@ -437,7 +467,6 @@
             </ul>
         </nav>
     </header>
-
     <main class="pt-16">
         <!-- Home Section -->
         <section id="home" class="relative flex flex-col md:flex-row-reverse items-center justify-center min-h-screen px-4 md:px-8 py-8 bg-[#1a1a2e] text-white rounded-b-3xl" style="top: -11px;">
@@ -492,8 +521,9 @@
             <div class="md:w-1/2 flex flex-col items-center pt-8 md:pb-0 pl-8">
                 <div class="photo-container relative w-64 h-64 md:w-80 md:h-80 bg-cyan-600 rounded-full flex items-center justify-center animate-pulse">
                     <figure class="image-editable-wrapper w-full h-full rounded-full">
-                        <img id="profilePhoto" data-id="profilePhoto" src="https://i.imgur.com/nzKKXiE.jpeg" alt="Min Htet Aung - Profile Photo" class="rounded-full w-56 h-56 md:w-72 md:h-72 object-cover border-4 border-white">
+                        <img id="profilePhoto" src="https://i.imgur.com/nzKKXiE.jpeg" alt="Min Htet Aung - Profile Photo" class="rounded-full w-56 h-56 md:w-72 md:h-72 object-cover border-4 border-white">
                         <div class="image-edit-delete-controls hidden">
+                            <button class="add-image-btn"><i class="fas fa-plus"></i></button>
                             <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
                             <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
                         </div>
@@ -501,7 +531,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Skills Section -->
         <section id="skills" class="container mx-auto py-12 px-4 md:px-8 text-right">
             <h2 class="text-3xl font-bold mb-8 section-title">My SKILLS</h2>
@@ -596,7 +625,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Experience Section -->
         <section id="experience" class="container mx-auto py-12 px-4 md:px-8 text-right">
             <h2 class="text-3xl font-bold mb-8 section-title">EXPERIENCE</h2>
@@ -705,7 +733,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Portfolio Section (Featured Projects - Overview) -->
         <section id="portfolio" class="container mx-auto py-12 px-4 md:px-8 text-right">
             <h2 class="text-3xl font-bold mb-8 section-title">My PORTFOLIO</h2>
@@ -715,6 +742,7 @@
                     <figure class="image-editable-wrapper w-full h-full">
                         <img id="professional-work-image" data-id="professional-work-image" src="https://placehold.co/600x400/2e3a51/00bcd4?text=Professional+Work" alt="Professional Work Image" class="w-full h-full object-cover" />
                         <div class="image-edit-delete-controls hidden">
+                             <button class="add-image-btn"><i class="fas fa-plus"></i></button>
                             <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
                             <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
                         </div>
@@ -728,6 +756,7 @@
                     <figure class="image-editable-wrapper w-full h-full">
                         <img id="studio-projects-image" data-id="studio-projects-image" src="https://placehold.co/600x400/2e3a51/00bcd4?text=Studio+Projects" alt="Studio Projects Image" class="w-full h-full object-cover" />
                         <div class="image-edit-delete-controls hidden">
+                            <button class="add-image-btn"><i class="fas fa-plus"></i></button>
                             <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
                             <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
                         </div>
@@ -741,6 +770,7 @@
                     <figure class="image-editable-wrapper w-full h-full">
                         <img id="personal-work-image" data-id="personal-work-image" src="https://placehold.co/600x400/2e3a51/00bcd4?text=Personal+Work" alt="Personal Work Image" class="w-full h-full object-cover" />
                         <div class="image-edit-delete-controls hidden">
+                            <button class="add-image-btn"><i class="fas fa-plus"></i></button>
                             <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
                             <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
                         </div>
@@ -756,7 +786,6 @@
                 </button>
             </div>
         </section>
-
         <!-- Detailed Portfolio Section (initially hidden) -->
         <section id="detailed-portfolio" class="container mx-auto py-12 px-4 md:px-8 text-right hidden">
             <h2 class="text-3xl font-bold mb-8 section-title">All PROJECTS</h2>
@@ -765,7 +794,6 @@
                     <i class="fa fa-arrow-left"></i>
                 </button>
             </div>
-
             <div class="project-category text-right">
                 <div class="editable-container justify-end">
                     <h3 class="text-2xl font-bold section-title editable-text" data-id="portfolio-title-professional" contenteditable="false">Professional WORK</h3>
@@ -773,7 +801,7 @@
                 </div>
             </div>
             <div id="professional-projects-container" class="grid grid-cols-1 gap-8 mt-6">
-                <div class="project-detail-card" data-project-id="prof-proj1">
+                <div class="project-detail-card">
                     <div class="editable-container justify-end">
                         <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="prof-proj1-title" contenteditable="false">High-End Residential Estate Development</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
@@ -796,17 +824,23 @@
                     </div>
                     <div class="image-gallery">
                         <figure class="image-editable-wrapper"><img id="prof-proj1-img1" data-id="prof-proj1-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Render" alt="Residential Estate Render">
-                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="prof-proj1-img2" data-id="prof-proj1-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Detail" alt="Residential Estate Detail">
-                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="prof-proj1-img3" data-id="prof-proj1-img3" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Model" alt="Residential Estate Model">
-                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                     </div>
                 </div>
-                <div class="project-detail-card" data-project-id="prof-proj2">
+                <div class="project-detail-card">
                     <div class="editable-container justify-end">
                         <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="prof-proj2-title" contenteditable="false">Residential Remodel & Addition</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
@@ -829,15 +863,18 @@
                     </div>
                     <div class="image-gallery">
                         <figure class="image-editable-wrapper"><img id="prof-proj2-img1" data-id="prof-proj2-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Remodel+Drawing" alt="Remodel Permit Drawing">
-                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="prof-proj2-img2" data-id="prof-proj2-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Remodel+Plan" alt="Remodel Construction Plan">
-                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                     </div>
                 </div>
             </div>
-
             <div class="project-category text-right">
                 <div class="editable-container justify-end">
                     <h3 class="text-2xl font-bold section-title editable-text" data-id="portfolio-title-studio" contenteditable="false">Studio PROJECTS</h3>
@@ -845,7 +882,7 @@
                 </div>
             </div>
             <div id="studio-projects-container" class="grid grid-cols-1 gap-8 mt-6">
-                 <div class="project-detail-card" data-project-id="studio-proj1">
+                <div class="project-detail-card">
                     <div class="editable-container justify-end">
                         <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="studio-proj1-title" contenteditable="false">Urban Reimagination Center</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
@@ -868,14 +905,18 @@
                     </div>
                     <div class="image-gallery">
                         <figure class="image-editable-wrapper"><img id="studio-proj1-img1" data-id="studio-proj1-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+1+Render" alt="Studio Project 1 - Main Render">
-                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="studio-proj1-img2" data-id="studio-proj1-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+1+Plan" alt="Studio Project 1 - Site Plan">
-                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                     </div>
                 </div>
-                 <div class="project-detail-card" data-project-id="studio-proj2">
+                <div class="project-detail-card">
                     <div class="editable-container justify-end">
                         <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="studio-proj2-title" contenteditable="false">Sustainable Housing Development</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
@@ -898,14 +939,18 @@
                     </div>
                     <div class="image-gallery">
                         <figure class="image-editable-wrapper"><img id="studio-proj2-img1" data-id="studio-proj2-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+2+Render" alt="Studio Project 2 - Main Render">
-                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="studio-proj2-img2" data-id="studio-proj2-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+2+Plan" alt="Studio Project 2 - Site Plan">
-                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                     </div>
                 </div>
-                 <div class="project-detail-card" data-project-id="studio-proj3">
+                <div class="project-detail-card">
                     <div class="editable-container justify-end">
                         <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="studio-proj3-title" contenteditable="false">Community Hub Revitalization</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
@@ -928,24 +973,27 @@
                     </div>
                     <div class="image-gallery">
                         <figure class="image-editable-wrapper"><img id="studio-proj3-img1" data-id="studio-proj3-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+3+Render" alt="Studio Project 3 - Main Render">
-                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="studio-proj3-img2" data-id="studio-proj3-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+3+Plan" alt="Studio Project 3 - Site Plan">
-                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                     </div>
                 </div>
             </div>
-
             <div class="project-category text-right">
-                 <div class="editable-container justify-end">
+                <div class="editable-container justify-end">
                     <h3 class="text-2xl font-bold section-title editable-text" data-id="portfolio-title-personal" contenteditable="false">Personal/Competitions</h3>
                     <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                 </div>
             </div>
             <div id="personal-projects-container" class="grid grid-cols-1 gap-8 mt-6">
                 <!-- Project Card 1: Retaining Wall -->
-                <div class="project-detail-card" data-project-id="personal-proj1">
+                <div class="project-detail-card">
                     <div class="editable-container justify-end">
                         <h4 id="personal-project-1-title" class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="personal-proj1-title" contenteditable="false">Backyard Retaining Wall Landscaping</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
@@ -968,15 +1016,19 @@
                     </div>
                     <div class="image-gallery">
                         <figure class="image-editable-wrapper"><img id="personal-proj1-img1" data-id="personal-proj1-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Retaining+Wall+Before" alt="Retaining Wall Before">
-                             <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="personal-proj1-img2" data-id="personal-proj1-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Retaining+Wall+After" alt="Retaining Wall After">
-                             <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                     </div>
                 </div>
                 <!-- Project Card 2: Chicken Coop -->
-                <div class="project-detail-card" data-project-id="personal-proj2">
+                <div class="project-detail-card">
                     <div class="editable-container justify-end">
                         <h4 id="personal-project-2-title" class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="personal-proj2-title" contenteditable="false">Custom Chicken Coop Design & Build</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
@@ -999,38 +1051,38 @@
                     </div>
                     <div class="image-gallery">
                         <figure class="image-editable-wrapper"><img id="personal-proj2-img1" data-id="personal-proj2-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Coop+Design" alt="Chicken Coop Design">
-                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="personal-proj2-img2" data-id="personal-proj2-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Finished+Coop" alt="Finished Chicken Coop">
-                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn-inline"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden">
+                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- Contact Section -->
         <section id="contact" class="container mx-auto py-12 px-4 md:px-8 text-right">
             <h2 class="text-3xl font-bold mb-8 section-title">CONTACT</h2>
             <div class="card p-6 max-w-xl ml-auto text-right">
                 <div class="flex flex-col items-end space-y-3">
                     <div class="flex items-center text-base">
-                        <div class="editable-container justify-end">
-                            <span id="contact-phone" data-id="contact-phone" class="text-white editable-text text-right" contenteditable="false">(626) 466-5346</span>
+                        <div class="editable-container justify-end"><span id="contact-phone" data-id="contact-phone" class="text-white editable-text text-right" contenteditable="false">(626) 466-5346</span>
                             <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                         </div>
                         <i class="fas fa-phone-alt text-cyan-400 ml-4"></i>
                     </div>
                     <div class="flex items-center text-base">
-                        <div class="editable-container justify-end">
-                            <a id="contact-email" data-id="contact-email" href="mailto:mha.cia92@gmail.com" class="text-white hover:underline editable-text text-right" contenteditable="false">mha.cia92@gmail.com</a>
+                        <div class="editable-container justify-end"><a id="contact-email" data-id="contact-email" href="mailto:mha.cia92@gmail.com" class="text-white hover:underline editable-text text-right" contenteditable="false">mha.cia92@gmail.com</a>
                             <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                         </div>
                         <i class="fas fa-envelope text-cyan-400 ml-4"></i>
                     </div>
                     <div class="flex items-center text-base">
-                        <div class="editable-container justify-end">
-                            <span id="contact-address" data-id="contact-address" class="text-white editable-text text-right" contenteditable="false">La Puente, CA 91744</span>
+                        <div class="editable-container justify-end"><span id="contact-address" data-id="contact-address" class="text-white editable-text text-right" contenteditable="false">La Puente, CA 91744</span>
                             <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                         </div>
                         <i class="fas fa-map-marker-alt text-cyan-400 ml-4"></i>
@@ -1039,17 +1091,14 @@
             </div>
         </section>
     </main>
-
     <!-- Footer -->
     <footer class="py-4 mt-12 text-center">
         <p class="font-extralight text-white uppercase" style="font-size: 26px;">THANK YOU</p>
     </footer>
-
     <!-- Image Preview Modal -->
     <div id="imagePreviewModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden opacity-0 pointer-events-none">
         <img id="imagePreviewImg" src="" alt="Image Preview" class="max-w-[80vw] max-h-[80vh] rounded-lg shadow-lg">
     </div>
-
     <!-- Custom Message Box HTML -->
     <div id="messageBox" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
         <div class="bg-[#2e3a51] p-6 rounded-lg shadow-lg max-w-sm w-full text-center">
@@ -1058,7 +1107,6 @@
             <input type="text" id="urlInput" class="hidden" placeholder="Paste URL and Press Enter">
         </div>
     </div>
-    
     <!-- Auth Modal (Sign In/Sign Up) -->
     <div id="authModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
         <div class="bg-[#2e3a51] p-6 rounded-lg shadow-lg w-full max-w-md relative">
@@ -1103,12 +1151,29 @@
             </div>
         </div>
     </div>
-
-
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signOut, onAuthStateChanged, signInAnonymously, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, updateProfile } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, getDoc, setDoc, deleteDoc, collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import {
+            initializeApp
+        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import {
+            getAuth,
+            signOut,
+            onAuthStateChanged,
+            signInAnonymously,
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
+            sendPasswordResetEmail,
+            updateProfile
+        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import {
+            getFirestore,
+            doc,
+            getDoc,
+            setDoc,
+            deleteDoc,
+            collection,
+            getDocs
+        } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         // --- Global State & Config ---
         let app, auth, db;
@@ -1116,15 +1181,18 @@
         let activeModalAction = null;
         let isAppInitialized = false;
         let currentAuthTab = 'signIn';
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'portfolio-minhtetaung';
-        const contentCollectionRef = () => collection(db, `artifacts/${appId}/public/data/page_content`);
-        const userDocRef = (uid) => doc(db, `users/${uid}`);
 
-        // --- Firebase Initialization ---
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'portfolio-minhtetaung';
+
+        const contentCollectionRef = () => collection(db, `artifacts/${appId}/public/data/page_content`);
+        const userDocRef = (uid) => doc(db, "users", uid);
+
+        // --- Firebase Initialization & Auth Handling ---
         function initializeFirebase() {
             try {
                 const firebaseConfig = typeof __firebase_config !== 'undefined' ?
                     JSON.parse(__firebase_config) : {
+                        // This is a placeholder config.
                         apiKey: "AIzaSyAKc_z-3OhB8ytDAHP3tOoI75cgPyPY_7M",
   			authDomain: "portfolio-d24d0.firebaseapp.com",
   			projectId: "portfolio-d24d0",
@@ -1149,13 +1217,19 @@
                 const signInIcon = document.getElementById('signInIcon');
                 const signOutBtn = document.getElementById('signOutBtn');
 
-                // Reset UI state
-                isAdmin = false;
-                document.body.classList.remove('admin-mode');
-                hideAllControls();
-
                 if (user) {
-                    // A user is signed in (anonymous or full)
+                    // Only initialize the main app content and listeners once
+                    if (!isAppInitialized) {
+                        isAppInitialized = true;
+                        await loadContentFromFirestore();
+                        initializeEventListeners();
+                    }
+
+                    // Update UI based on auth state
+                    isAdmin = false;
+                    document.body.classList.remove('admin-mode');
+                    hideAllControls();
+
                     if (user.isAnonymous) {
                         signInIcon.classList.add('hidden');
                         signOutBtn.classList.add('hidden');
@@ -1172,16 +1246,8 @@
                             console.error("Error checking admin role:", error);
                         }
                     }
-
-                    // Run app initialization once we have a user
-                    if (!isAppInitialized) {
-                        isAppInitialized = true;
-                        await loadContentFromFirestore();
-                        initializeEventListeners();
-                    }
-
                 } else {
-                    // No user, sign in anonymously. The listener will re-run with the new user.
+                    // If no user, sign in anonymously. The listener will fire again once done.
                     try {
                         await signInAnonymously(auth);
                     } catch (error) {
@@ -1190,12 +1256,11 @@
                 }
             });
         }
-        
+
         // --- Data Persistence (Firestore) ---
         async function loadContentFromFirestore() {
             try {
                 const querySnapshot = await getDocs(contentCollectionRef());
-                const dynamicImages = [];
                 querySnapshot.forEach((docSnap) => {
                     const dataId = docSnap.id;
                     const data = docSnap.data();
@@ -1208,21 +1273,8 @@
                         } else if (data.type === 'image' && el.tagName === 'IMG') {
                             el.src = data.src;
                         }
-                    } else if (data.type === 'image' && data.gallery) {
-                        // Collect dynamic images to be added later
-                        dynamicImages.push(data);
                     }
                 });
-
-                // Add dynamic images to their galleries
-                dynamicImages.forEach(data => {
-                    const gallery = document.querySelector(`.project-detail-card[data-project-id="${data.gallery}"] .image-gallery`);
-                    if (gallery) {
-                        createAndAppendImage(gallery, data.src, data.id, data.gallery);
-                    }
-                });
-                // After all content is loaded, re-attach listeners to ensure they cover dynamic elements
-                attachListenersToElements();
 
             } catch (error) {
                 console.error("Error loading content:", error);
@@ -1234,7 +1286,9 @@
             if (!isAdmin || !elementId) return;
             try {
                 const itemDocRef = doc(db, `artifacts/${appId}/public/data/page_content`, elementId);
-                await setDoc(itemDocRef, data, { merge: true });
+                await setDoc(itemDocRef, data, {
+                    merge: true
+                });
             } catch (e) {
                 console.error("Error saving data: ", e);
                 showMessageBox("Failed to save changes.");
@@ -1252,12 +1306,7 @@
             }
         }
 
-        // --- UI & Event Listeners ---
-        document.addEventListener('DOMContentLoaded', () => {
-             // Let the auth listener kick off the rest of the app
-             initializeFirebase();
-        });
-
+        //--- UI & Event Listeners ---
         function initializeEventListeners() {
             // --- Navigation Logic ---
             document.querySelectorAll('a.header-nav-link').forEach(anchor => {
@@ -1267,9 +1316,10 @@
                     this.classList.add('active');
 
                     if (this.getAttribute('href') !== '#portfolio') {
-                         document.getElementById('portfolio').classList.remove('hidden');
-                         document.getElementById('detailed-portfolio').classList.add('hidden');
+                        document.getElementById('portfolio').classList.remove('hidden');
+                        document.getElementById('detailed-portfolio').classList.add('hidden');
                     }
+
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
                     });
@@ -1281,11 +1331,13 @@
             window.addEventListener('scroll', () => {
                 let current = "";
                 const visibleSections = Array.from(sections).filter(sec => !sec.classList.contains('hidden'));
+
                 visibleSections.forEach(section => {
                     if (window.scrollY >= section.offsetTop - 100) {
                         current = section.getAttribute('id');
                     }
                 });
+
                 navLi.forEach(li => {
                     li.classList.remove('active');
                     if (li.getAttribute('href').includes(current)) {
@@ -1297,7 +1349,6 @@
             // --- Portfolio Toggling Logic ---
             const portfolioOverviewSection = document.getElementById('portfolio');
             const detailedPortfolioSection = document.getElementById('detailed-portfolio');
-            
             document.getElementById('seeAllProjectsBtn').addEventListener('click', () => {
                 portfolioOverviewSection.classList.add('hidden');
                 detailedPortfolioSection.classList.remove('hidden');
@@ -1306,15 +1357,15 @@
                     behavior: 'smooth'
                 });
             });
-
             document.getElementById('backToFeaturedBtn').addEventListener('click', () => {
                 detailedPortfolioSection.classList.add('hidden');
                 portfolioOverviewSection.classList.remove('hidden');
-                 window.scrollTo({
+                window.scrollTo({
                     top: portfolioOverviewSection.offsetTop - 70,
                     behavior: 'smooth'
                 });
             });
+
 
             // --- Admin Login ---
             let clickCount = 0;
@@ -1328,15 +1379,17 @@
 
                 if (clickCount === 3) {
                     clickCount = 0;
-                    if (auth.currentUser && !auth.currentUser.isAnonymous) return; // Don't show if already logged in
+                    if (auth.currentUser && !auth.currentUser.isAnonymous) return;
                     document.getElementById('signInIcon').classList.remove('hidden');
                 }
             });
 
-            // --- Sign In / Out Buttons ---
+
+            //--- Sign In / Out Buttons ---
             document.getElementById('signInIcon').addEventListener('click', () => {
-                 showAuthModal();
+                showAuthModal();
             });
+
             document.getElementById('signOutBtn').addEventListener('click', async () => {
                 try {
                     await signOut(auth);
@@ -1346,11 +1399,11 @@
                     showMessageBox(`Sign out failed: ${error.message}`);
                 }
             });
-            
-            // --- New Edit Logic ---
+
+            // --- New Edit Logic
             document.body.addEventListener('click', (e) => {
                 if (!isAdmin) return;
-                
+
                 const clickedOnControls = e.target.closest('.edit-delete-controls, .image-edit-delete-controls');
                 if (clickedOnControls) {
                     return; // Do nothing if a control button was clicked
@@ -1359,8 +1412,10 @@
                 const editableEl = e.target.closest('.editable-text, .image-editable-wrapper');
 
                 if (editableEl) {
+                    // If we are clicking a new editable element, hide all other controls first
                     const controls = editableEl.closest('.editable-container, .image-editable-wrapper, .project-detail-card').querySelector('.edit-delete-controls, .image-edit-delete-controls');
-                    if(controls && controls.classList.contains('hidden')){
+
+                    if (controls && controls.classList.contains('hidden')) {
                         hideAllControls();
                         controls.classList.remove('hidden');
                     }
@@ -1370,41 +1425,43 @@
                 }
             });
 
+
             // --- Home page contact icon listeners ---
             document.getElementById('homeEmailIcon').addEventListener('click', () => showMessageBox('mha.cia92@gmail.com'));
             document.getElementById('homePhoneIcon').addEventListener('click', () => showMessageBox('(626) 466-5346'));
             document.getElementById('homeLocationIcon').addEventListener('click', () => showMessageBox('La Puente, CA 91744'));
-            
-            // --- Attach initial listeners ---
+
+            // --- Attach handlers to all buttons
             attachListenersToElements();
             initializeImagePreviewListeners();
-            setupAuthModalListeners();
+            setupAuthModalListeners(); // Setup auth modal listeners
         }
 
         function hideAllControls() {
             document.querySelectorAll('[contenteditable="true"]').forEach(el => {
                 el.setAttribute('contenteditable', 'false');
-                el.style.border = '';
-                el.style.padding = '';
+                el.style.border = "";
+                el.style.padding = "";
                 const controls = el.closest('.editable-container').querySelector('.edit-delete-controls');
-                if(controls){
+                if (controls) {
                     controls.querySelector('.edit-btn').classList.remove('hidden');
                     controls.querySelector('.save-btn').classList.add('hidden');
                 }
             });
+
             document.querySelectorAll('.edit-delete-controls, .image-edit-delete-controls').forEach(c => {
-                 if (!c.classList.contains('hidden')) c.classList.add('hidden');
+                if (!c.classList.contains('hidden')) c.classList.add('hidden');
             });
         }
-        
-        function attachListenersToElements(){
+
+        function attachListenersToElements() {
             document.querySelectorAll('.edit-btn').forEach(b => b.addEventListener('click', handleEditButton));
             document.querySelectorAll('.save-btn').forEach(b => b.addEventListener('click', handleSaveButton));
             document.querySelectorAll('.delete-btn').forEach(b => b.addEventListener('click', handleDeleteButton));
             document.querySelectorAll('.align-btn').forEach(b => b.addEventListener('click', handleAlignButton));
             document.querySelectorAll('.edit-image-btn').forEach(b => b.addEventListener('click', handleEditImageButton));
             document.querySelectorAll('.delete-image-btn').forEach(b => b.addEventListener('click', handleDeleteImageButton));
-            document.querySelectorAll('.add-image-btn-inline').forEach(b => b.addEventListener('click', handleAddImageInlineButton));
+            document.querySelectorAll('.add-image-btn').forEach(b => b.addEventListener('click', handleAddImageButton));
         }
 
         // --- Event Handlers ---
@@ -1416,12 +1473,13 @@
             editableText.style.border = '1px solid #00bcd4';
             editableText.style.padding = '2px';
             editableText.focus();
+
             const controls = container.querySelector('.edit-delete-controls');
             controls.querySelector('.edit-btn').classList.add('hidden');
             controls.querySelector('.save-btn').classList.remove('hidden');
         }
 
-        function handleSaveButton(e){
+        function handleSaveButton(e) {
             e.stopPropagation();
             const container = e.target.closest('.editable-container');
             const editableText = container.querySelector('.editable-text');
@@ -1432,7 +1490,7 @@
                 align: editableText.style.textAlign || null
             };
             saveData(dataId, currentData);
-            
+
             editableText.setAttribute('contenteditable', 'false');
             editableText.style.border = "";
             editableText.style.padding = "";
@@ -1446,12 +1504,12 @@
             e.stopPropagation();
             const editableText = e.target.closest('.editable-container').querySelector('.editable-text');
             const dataId = editableText.getAttribute('data-id');
-            editableText.innerHTML = ''; // Clear content visually
+            editableText.innerHTML = ""; // Clear content visually
             deleteData(dataId);
             hideAllControls();
         }
-        
-        function handleAlignButton(e){
+
+        function handleAlignButton(e) {
             e.stopPropagation();
             const editableText = e.target.closest('.editable-container').querySelector('.editable-text');
             const alignType = e.currentTarget.dataset.align;
@@ -1469,14 +1527,18 @@
             e.stopPropagation();
             const img = e.target.closest('.image-editable-wrapper').querySelector('img');
             const imgId = img.dataset.id || img.id;
+
             showUrlPrompt((url) => {
                 if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
                     img.src = url;
-                    saveData(imgId, { type: 'image', src: url });
+                    saveData(imgId, {
+                        type: 'image',
+                        src: url
+                    });
                 } else if (url) {
                     showMessageBox("Invalid URL. Please provide a full link starting with http or https.");
                 }
-                 hideMessageBox();
+                hideMessageBox();
             });
             hideAllControls();
         }
@@ -1487,10 +1549,10 @@
             const img = imageWrapper.querySelector('img');
             const imgId = img.dataset.id || img.id;
 
-            if (imgId.startsWith('img_')) { // Custom added image
+            if (imgId.startsWith('img_')) {
                 deleteData(imgId);
                 imageWrapper.closest('figure').remove();
-            } else { // Default image, revert to placeholder
+            } else {
                 let newSrc;
                 if (img.id === 'profilePhoto') {
                     newSrc = 'https://i.imgur.com/nzKKXiE.jpeg';
@@ -1499,47 +1561,44 @@
                     newSrc = `https://placehold.co/600x400/2e3a51/00bcd4?text=${encodeURIComponent(placeholderText)}`;
                 }
                 img.src = newSrc;
-                saveData(imgId, { type: 'image', src: newSrc });
+                saveData(imgId, {
+                    type: 'image',
+                    src: newSrc
+                });
             }
-             hideAllControls();
-        }
-        
-        function createAndAppendImage(gallery, src, id, projectId) {
-            const newFigure = document.createElement('figure');
-            newFigure.className = 'image-editable-wrapper';
-            newFigure.innerHTML = `
-                <img src="${src}" alt="Uploaded Image" class="w-full h-auto rounded-lg" id="${id}" data-id="${id}">
-                <div class="image-edit-delete-controls hidden">
-                    <button class="add-image-btn-inline"><i class="fas fa-plus"></i></button>
-                    <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
-                    <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
-                </div>
-            `;
-            gallery.appendChild(newFigure);
-            // Re-attach listeners for the new element's controls
-            newFigure.querySelector('.add-image-btn-inline').addEventListener('click', handleAddImageInlineButton);
-            newFigure.querySelector('.edit-image-btn').addEventListener('click', handleEditImageButton);
-            newFigure.querySelector('.delete-image-btn').addEventListener('click', handleDeleteImageButton);
+            hideAllControls();
         }
 
-        function handleAddImageInlineButton(e) {
+        function handleAddImageButton(e) {
             e.stopPropagation();
-            const card = e.target.closest('.project-detail-card');
-            const imageGallery = card.querySelector('.image-gallery');
-            const projectId = card.dataset.projectId;
-
+            const currentFigure = e.target.closest('figure.image-editable-wrapper');
+            
             showUrlPrompt((url) => {
                 if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
                     const imgId = `img_${Date.now()}`;
-                    createAndAppendImage(imageGallery, url, imgId, projectId);
-                    saveData(imgId, { type: 'image', src: url, gallery: projectId });
+                    const newFigure = document.createElement('figure');
+                    newFigure.className = 'image-editable-wrapper';
+                    newFigure.innerHTML = `
+                        <img src="${url}" alt="Uploaded Image" class="w-full h-auto rounded-lg" id="${imgId}" data-id="${imgId}">
+                        <div class="image-edit-delete-controls hidden">
+                           <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                           <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
+                           <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    `;
+                    
+                    currentFigure.parentNode.insertBefore(newFigure, currentFigure.nextSibling);
+
+                    saveData(imgId, { type: 'image', src: url });
+                    attachListenersToElements(); // Re-attach listeners to include the new buttons
                 } else if (url) {
                     showMessageBox("Invalid URL. Please provide a full link starting with http or https.");
                 }
                 hideMessageBox();
             });
+             hideAllControls();
         }
-        
+
         // --- Modal/Message Box Logic ---
         function showMessageBox(message) {
             const messageBox = document.getElementById('messageBox');
@@ -1561,19 +1620,42 @@
             if (e.target.id === 'messageBox') hideMessageBox();
         }
 
+        function showPinPrompt(onPinCorrect, onPinIncorrect) {
+            const messageBox = document.getElementById('messageBox');
+            const pinInput = messageBox.querySelector('#pinInput');
+            messageBox.querySelector('#messageText').textContent = "Enter PIN";
+            pinInput.value = "";
+            pinInput.classList.remove('hidden');
+            messageBox.classList.remove('hidden');
+            pinInput.focus();
+
+            const CORRECT_PIN = "1234";
+
+            activeModalAction = () => {
+                if (pinInput.value === CORRECT_PIN) {
+                    onPinCorrect();
+                } else {
+                    onPinIncorrect();
+                }
+                hideMessageBox();
+            };
+            messageBox.addEventListener('click', hideMessageBoxOnClickOutside);
+        }
+
+
         function showUrlPrompt(callback) {
             const messageBox = document.getElementById('messageBox');
             const urlInput = messageBox.querySelector('#urlInput');
             messageBox.querySelector('#messageText').textContent = "Paste Image URL";
-            urlInput.value = '';
+            urlInput.value = "";
             urlInput.classList.remove('hidden');
             messageBox.classList.remove('hidden');
             urlInput.focus();
-            
+
             activeModalAction = () => {
                 callback(urlInput.value);
             };
-             messageBox.addEventListener('click', hideMessageBoxOnClickOutside);
+            messageBox.addEventListener('click', hideMessageBoxOnClickOutside);
         }
 
         document.addEventListener('keydown', (e) => {
@@ -1589,22 +1671,19 @@
         function initializeImagePreviewListeners() {
             const modal = document.getElementById('imagePreviewModal');
             const modalImg = document.getElementById('imagePreviewImg');
-
             document.getElementById('detailed-portfolio').addEventListener('click', (e) => {
                 if (e.target.tagName === 'IMG' && e.target.closest('.image-gallery')) {
-                    if(isAdmin && e.target.closest('.image-editable-wrapper')) return; // Don't show modal in admin mode on click
-                    
+                    if (isAdmin && e.target.closest('.image-editable-wrapper')) return; // Don't show modal in admin mode on click
                     modalImg.src = e.target.src;
                     modal.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
                 }
             });
-
             modal.addEventListener('click', () => {
                 modal.classList.add('hidden', 'opacity-0', 'pointer-events-none');
                 modalImg.src = "";
             });
         }
-        
+
         // --- Auth Modal Logic ---
         function showAuthModal() {
             document.getElementById('authModal').classList.remove('hidden');
@@ -1614,7 +1693,7 @@
             document.getElementById('authConfirmPassword').value = "";
             setActiveAuthTab('signIn');
         }
-        
+
         function hideAuthModal() {
             document.getElementById('authModal').classList.add('hidden');
         }
@@ -1646,7 +1725,6 @@
             document.getElementById('closeAuthModal').addEventListener('click', hideAuthModal);
             document.getElementById('signInToggleBtn').addEventListener('click', () => setActiveAuthTab('signIn'));
             document.getElementById('signUpToggleBtn').addEventListener('click', () => setActiveAuthTab('signUp'));
-
             document.getElementById('authModal').addEventListener('click', (e) => {
                 if (e.target.id === 'authModal') {
                     hideAuthModal();
@@ -1674,37 +1752,41 @@
                     showMessageBox(errorMessage);
                 }
             });
-            
+
             document.getElementById('authSubmitBtn').addEventListener('click', async () => {
                 const email = document.getElementById('authEmail').value;
                 const password = document.getElementById('authPassword').value;
-                let name = '';
-                let confirmPassword = '';
+                let name = "";
+                let confirmPassword = "";
 
                 if (currentAuthTab === 'signUp') {
                     name = document.getElementById('authName').value;
                     confirmPassword = document.getElementById('authConfirmPassword').value;
                 }
-                
+
                 if (!email || !password) {
                     showMessageBox("Please enter both email and password.");
                     return;
                 }
-
                 if (currentAuthTab === 'signUp' && password !== confirmPassword) {
                     showMessageBox("Passwords do not match!");
                     return;
                 }
-                
+
                 if (currentAuthTab === 'signUp') {
                     try {
                         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                         const user = userCredential.user;
                         if (name) {
-                            await updateProfile(user, { displayName: name });
+                            await updateProfile(user, {
+                                displayName: name
+                            });
                         }
                         const docRef = userDocRef(user.uid);
-                        await setDoc(docRef, { email: user.email, role: 'viewer' });
+                        await setDoc(docRef, {
+                            email: user.email,
+                            role: 'viewer'
+                        });
                         showMessageBox("Sign Up Successful! Welcome " + (name || email) + "!");
                         hideAuthModal();
                     } catch (error) {
@@ -1717,7 +1799,7 @@
                         } else if (error.code === 'auth/weak-password') {
                             errorMessage = "The password is too weak (should be at least 6 characters).";
                         }
-                         showMessageBox(errorMessage);
+                        showMessageBox(errorMessage);
                     }
                 } else { // Sign In
                     try {
@@ -1725,16 +1807,21 @@
                         showMessageBox("Sign In Successful! Welcome back!");
                         hideAuthModal();
                     } catch (error) {
-                         console.error("Sign In Error:", error);
-                         let errorMessage = "Sign in failed.";
-                         if (error.code === 'auth/invalid-credential' || error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
+                        console.error("Sign In Error:", error);
+                        let errorMessage = "Sign in failed.";
+                        if (error.code === 'auth/invalid-credential' || error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password') {
                             errorMessage = "Invalid email or password.";
-                         }
-                         showMessageBox(errorMessage);
+                        }
+                        showMessageBox(errorMessage);
                     }
                 }
             });
         }
+        
+        // --- App Entry Point ---
+        document.addEventListener('DOMContentLoaded', () => {
+             initializeFirebase();
+        });
     </script>
 </body>
 </html>
