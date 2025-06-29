@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -288,9 +288,10 @@
         .edit-delete-controls .edit-btn:hover {
             background-color: #0097a7;
         }
-        
+
         .edit-delete-controls .save-btn {
-            background-color: #3b82f6; /* Blue */
+            background-color: #3b82f6;
+            /* Blue */
             color: #fff;
         }
 
@@ -511,7 +512,7 @@
                 <p class="text-base mb-1">Hello, It's Me</p>
                 <h1 id="main-title" class="text-4xl md:text-5xl font-bold mb-3 leading-tight uppercase cursor-pointer">MIN HTET AUNG</h1>
                 <div class="editable-container justify-end mb-5">
-                    <p id="home-subtitle" class="text-2xl md:text-3xl font-semibold text-cyan-400 editable-text" contenteditable="false">ARCHITECTURAL DESIGNER &<br>BUILDER</p>
+                    <p id="home-subtitle" data-id="home-subtitle" class="text-2xl md:text-3xl font-semibold text-cyan-400 editable-text" contenteditable="false">ARCHITECTURAL DESIGNER &<br>BUILDER</p>
                     <div class="edit-delete-controls hidden ml-2">
                         <button class="edit-btn"><i class="fas fa-edit"></i></button>
                         <button class="save-btn hidden"><i class="fas fa-save"></i></button>
@@ -521,7 +522,7 @@
                     </div>
                 </div>
                 <div class="editable-container justify-end mb-6">
-                    <p id="home-description" class="text-base max-w-lg text-justify editable-text" contenteditable="false">
+                    <p id="home-description" data-id="home-description" class="text-base max-w-lg text-justify editable-text" contenteditable="false">
                         Architectural designer & builder with a Bachelor of Architecture (B.Arch) from Cal Poly Pomona and 6+ years of combined academic and hands-on experience in architectural design and construction. Proficient in design development, construction documentation, city permitting process and project coordination, including residential renovations and landscaping.
                     </p>
                     <div class="edit-delete-controls hidden ml-2">
@@ -552,7 +553,7 @@
             <div class="md:w-1/2 flex flex-col items-center pt-8 md:pb-0 pl-8">
                 <div class="photo-container relative w-64 h-64 md:w-80 md:h-80 bg-cyan-600 rounded-full flex items-center justify-center animate-pulse">
                     <figure class="image-editable-wrapper w-full h-full rounded-full">
-                        <img id="profilePhoto" src="https://i.imgur.com/nzKKXiE.jpeg" alt="Min Htet Aung - Profile Photo" class="rounded-full w-56 h-56 md:w-72 md:h-72 object-cover border-4 border-white">
+                        <img id="profilePhoto" data-id="profilePhoto" src="https://i.imgur.com/nzKKXiE.jpeg" alt="Min Htet Aung - Profile Photo" class="rounded-full w-56 h-56 md:w-72 md:h-72 object-cover border-4 border-white">
                         <div class="image-edit-delete-controls hidden">
                             <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
                             <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
@@ -570,70 +571,70 @@
                 <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
                     <i class="fas fa-cubes text-3xl text-cyan-400 mb-2"></i>
                     <div class="editable-container justify-center">
-                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Rhino</p>
+                        <p class="text-base font-medium editable-text text-center" data-id="skill-rhino" contenteditable="false">Rhino</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
                     </div>
                 </div>
                 <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
                     <i class="fas fa-stream text-3xl text-cyan-400 mb-2"></i>
                     <div class="editable-container justify-center">
-                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Grasshopper</p>
+                        <p class="text-base font-medium editable-text text-center" data-id="skill-grasshopper" contenteditable="false">Grasshopper</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
                     </div>
                 </div>
                 <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
                     <i class="fas fa-pencil-ruler text-3xl text-cyan-400 mb-2"></i>
                     <div class="editable-container justify-center">
-                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Illustrator</p>
+                        <p class="text-base font-medium editable-text text-center" data-id="skill-illustrator" contenteditable="false">Illustrator</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
                     </div>
                 </div>
                 <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
                     <i class="fas fa-drafting-compass text-3xl text-cyan-400 mb-2"></i>
                     <div class="editable-container justify-center">
-                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Revit</p>
+                        <p class="text-base font-medium editable-text text-center" data-id="skill-revit" contenteditable="false">Revit</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
                     </div>
                 </div>
                 <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
                     <i class="fas fa-lightbulb text-3xl text-cyan-400 mb-2"></i>
                     <div class="editable-container justify-center">
-                        <p class="text-base font-medium editable-text text-center" contenteditable="false">V-Ray</p>
+                        <p class="text-base font-medium editable-text text-center" data-id="skill-vray" contenteditable="false">V-Ray</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
                     </div>
                 </div>
                 <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
                     <i class="fas fa-image text-3xl text-cyan-400 mb-2"></i>
                     <div class="editable-container justify-center">
-                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Photoshop</p>
+                        <p class="text-base font-medium editable-text text-center" data-id="skill-photoshop" contenteditable="false">Photoshop</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
                     </div>
                 </div>
                 <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
                     <i class="fas fa-bezier-curve text-3xl text-cyan-400 mb-2"></i>
                     <div class="editable-container justify-center">
-                        <p class="text-base font-medium editable-text text-center" contenteditable="false">AutoCAD</p>
+                        <p class="text-base font-medium editable-text text-center" data-id="skill-autocad" contenteditable="false">AutoCAD</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
                     </div>
                 </div>
                 <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
                     <i class="fas fa-map-marked-alt text-3xl text-cyan-400 mb-2"></i>
                     <div class="editable-container justify-center">
-                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Twinmotion</p>
+                        <p class="text-base font-medium editable-text text-center" data-id="skill-twinmotion" contenteditable="false">Twinmotion</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
                     </div>
                 </div>
                 <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
                     <i class="fas fa-mountain text-3xl text-cyan-400 mb-2"></i>
                     <div class="editable-container justify-center">
-                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Lumion</p>
+                        <p class="text-base font-medium editable-text text-center" data-id="skill-lumion" contenteditable="false">Lumion</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
                     </div>
                 </div>
                 <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
                     <i class="fas fa-desktop text-3xl text-cyan-400 mb-2"></i>
                     <div class="editable-container justify-center">
-                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Microsoft Office</p>
+                        <p class="text-base font-medium editable-text text-center" data-id="skill-msoffice" contenteditable="false">Microsoft Office</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
                     </div>
                 </div>
@@ -643,14 +644,14 @@
                         <rect x="39" y="39" width="22" height="22" fill="currentColor" />
                     </svg>
                     <div class="editable-container justify-center">
-                        <p class="text-base font-medium editable-text text-center" contenteditable="false">Bluebeam</p>
+                        <p class="text-base font-medium editable-text text-center" data-id="skill-bluebeam" contenteditable="false">Bluebeam</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
                     </div>
                 </div>
                 <div class="skill-item p-3 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
                     <i class="fas fa-print text-3xl text-cyan-400 mb-2"></i>
                     <div class="editable-container justify-center">
-                        <p class="text-base font-medium editable-text text-center" contenteditable="false">3D Printing</p>
+                        <p class="text-base font-medium editable-text text-center" data-id="skill-3dprinting" contenteditable="false">3D Printing</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button></div>
                     </div>
                 </div>
@@ -664,35 +665,35 @@
                 <div class="experience-item relative pr-6 pb-6 pl-0">
                     <div class="absolute w-3 h-3 bg-cyan-400 rounded-full" style="right:-2px; top:0;"></div>
                     <div class="editable-container justify-end">
-                        <h3 class="text-xl font-semibold mb-1 editable-text" contenteditable="false">Junior Designer/Drafter</h3>
+                        <h3 class="text-xl font-semibold mb-1 editable-text" data-id="exp1-title" contenteditable="false">Junior Designer/Drafter</h3>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-base text-gray-400 mb-0.5 editable-text" contenteditable="false">Solid Architecture Inc - Los Angeles, CA</p>
+                        <p class="text-base text-gray-400 mb-0.5 editable-text" data-id="exp1-company" contenteditable="false">Solid Architecture Inc - Los Angeles, CA</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm text-gray-500 mb-2 editable-text" contenteditable="false">April 2025 - June 2025</p>
+                        <p class="text-sm text-gray-500 mb-2 editable-text" data-id="exp1-date" contenteditable="false">April 2025 - June 2025</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <ul class="list-disc pr-4 text-gray-300 space-y-1 text-right list-outside">
                         <li>
-                            <div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Prepared permit drawings and coordinated plan submissions to various city departments.</span>
+                            <div class="editable-container justify-end"><span class="editable-text" data-id="exp1-item1" contenteditable="false">Prepared permit drawings and coordinated plan submissions to various city departments.</span>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                             </div>
                         </li>
                         <li>
-                            <div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Delivered city documents and permit sets, ensuring accuracy and compliance.</span>
+                            <div class="editable-container justify-end"><span class="editable-text" data-id="exp1-item2" contenteditable="false">Delivered city documents and permit sets, ensuring accuracy and compliance.</span>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                             </div>
                         </li>
                         <li>
-                            <div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Produced design and construction documents under the direction of a senior architect.</span>
+                            <div class="editable-container justify-end"><span class="editable-text" data-id="exp1-item3" contenteditable="false">Produced design and construction documents under the direction of a senior architect.</span>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                             </div>
                         </li>
                         <li>
-                            <div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Worked in a hybrid environment.</span>
+                            <div class="editable-container justify-end"><span class="editable-text" data-id="exp1-item4" contenteditable="false">Worked in a hybrid environment.</span>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                             </div>
                         </li>
@@ -701,35 +702,35 @@
                 <div class="experience-item relative pr-6 pb-6 mt-6 pl-0">
                     <div class="absolute w-3 h-3 bg-cyan-400 rounded-full" style="right:-2px; top:0;"></div>
                     <div class="editable-container justify-end">
-                        <h3 class="text-xl font-semibold mb-1 editable-text" contenteditable="false">Architecture Intern / Assistant Architect</h3>
+                        <h3 class="text-xl font-semibold mb-1 editable-text" data-id="exp2-title" contenteditable="false">Architecture Intern / Assistant Architect</h3>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-base text-gray-400 mb-0.5 editable-text" contenteditable="false">FoxLin Architects - Mission Viejo, CA</p>
+                        <p class="text-base text-gray-400 mb-0.5 editable-text" data-id="exp2-company" contenteditable="false">FoxLin Architects - Mission Viejo, CA</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm text-gray-500 mb-2 editable-text" contenteditable="false">June 2024 - October 2024</p>
+                        <p class="text-sm text-gray-500 mb-2 editable-text" data-id="exp2-date" contenteditable="false">June 2024 - October 2024</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <ul class="list-disc pr-4 text-gray-300 space-y-1 text-right list-outside">
                         <li>
-                            <div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Developed design drawings, 3D models, and renderings for high-end residential projects.</span>
+                            <div class="editable-container justify-end"><span class="editable-text" data-id="exp2-item1" contenteditable="false">Developed design drawings, 3D models, and renderings for high-end residential projects.</span>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                             </div>
                         </li>
                         <li>
-                            <div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Supported construction document sets and building code research.</span>
+                            <div class="editable-container justify-end"><span class="editable-text" data-id="exp2-item2" contenteditable="false">Supported construction document sets and building code research.</span>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                             </div>
                         </li>
                         <li>
-                            <div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Participated in site visits and project meetings with consultants and clients.</span>
+                            <div class="editable-container justify-end"><span class="editable-text" data-id="exp2-item3" contenteditable="false">Participated in site visits and project meetings with consultants and clients.</span>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                             </div>
                         </li>
                         <li>
-                            <div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Created physical and digital presentation materials for client proposals.</span>
+                            <div class="editable-container justify-end"><span class="editable-text" data-id="exp2-item4" contenteditable="false">Created physical and digital presentation materials for client proposals.</span>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                             </div>
                         </li>
@@ -738,26 +739,26 @@
                 <div class="experience-item relative pr-6 mt-6 pl-0">
                     <div class="absolute w-3 h-3 bg-cyan-400 rounded-full" style="right:-2px; top:0;"></div>
                     <div class="editable-container justify-end">
-                        <h3 class="text-xl font-semibold mb-1 editable-text" contenteditable="false">Freelance Designer / Builder</h3>
+                        <h3 class="text-xl font-semibold mb-1 editable-text" data-id="exp3-title" contenteditable="false">Freelance Designer / Builder</h3>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm text-gray-500 mb-2 editable-text" contenteditable="false">2021-2023</p>
+                        <p class="text-sm text-gray-500 mb-2 editable-text" data-id="exp3-date" contenteditable="false">2021-2023</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <ul class="list-disc pr-4 text-gray-300 space-y-1 text-right list-outside">
                         <li>
-                            <div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Managed all phases of a residential room renovation, from concept to subcontractor coordination.</span>
+                            <div class="editable-container justify-end"><span class="editable-text" data-id="exp3-item1" contenteditable="false">Managed all phases of a residential room renovation, from concept to subcontractor coordination.</span>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                             </div>
                         </li>
                         <li>
-                            <div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Designed and constructed a custom hillside retaining wall with integrated landscaping.</span>
+                            <div class="editable-container justify-end"><span class="editable-text" data-id="exp3-item2" contenteditable="false">Designed and constructed a custom hillside retaining wall with integrated landscaping.</span>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                             </div>
                         </li>
                         <li>
-                            <div class="editable-container justify-end"><span class="editable-text" contenteditable="false">Managed project budgets, material selection, and hands-on building work.</span>
+                            <div class="editable-container justify-end"><span class="editable-text" data-id="exp3-item3" contenteditable="false">Managed project budgets, material selection, and hands-on building work.</span>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                             </div>
                         </li>
@@ -773,7 +774,7 @@
                 <!-- Professional Work Card -->
                 <div class="featured-project-card block rounded-xl relative group" data-project-category="professional">
                     <figure class="image-editable-wrapper w-full h-full">
-                        <img id="professional-work-image" src="https://placehold.co/600x400/2e3a51/00bcd4?text=Professional+Work" alt="Professional Work Image" class="w-full h-full object-cover" />
+                        <img id="professional-work-image" data-id="professional-work-image" src="https://placehold.co/600x400/2e3a51/00bcd4?text=Professional+Work" alt="Professional Work Image" class="w-full h-full object-cover" />
                         <div class="image-edit-delete-controls hidden">
                             <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
                             <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
@@ -786,7 +787,7 @@
                 <!-- Studio Projects Card -->
                 <div class="featured-project-card block rounded-xl relative group" data-project-category="studio">
                     <figure class="image-editable-wrapper w-full h-full">
-                        <img id="studio-projects-image" src="https://placehold.co/600x400/2e3a51/00bcd4?text=Studio+Projects" alt="Studio Projects Image" class="w-full h-full object-cover" />
+                        <img id="studio-projects-image" data-id="studio-projects-image" src="https://placehold.co/600x400/2e3a51/00bcd4?text=Studio+Projects" alt="Studio Projects Image" class="w-full h-full object-cover" />
                         <div class="image-edit-delete-controls hidden">
                             <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
                             <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
@@ -799,7 +800,7 @@
                 <!-- Personal/Competitions Card -->
                 <div class="featured-project-card block rounded-xl relative group" data-project-category="personal">
                     <figure class="image-editable-wrapper w-full h-full">
-                        <img id="personal-work-image" src="https://placehold.co/600x400/2e3a51/00bcd4?text=Personal+Work" alt="Personal Work Image" class="w-full h-full object-cover" />
+                        <img id="personal-work-image" data-id="personal-work-image" src="https://placehold.co/600x400/2e3a51/00bcd4?text=Personal+Work" alt="Personal Work Image" class="w-full h-full object-cover" />
                         <div class="image-edit-delete-controls hidden">
                             <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
                             <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
@@ -825,53 +826,52 @@
                     <i class="fa fa-arrow-left"></i>
                 </button>
             </div>
-
             <div class="project-category text-right">
                 <div class="editable-container justify-end">
-                    <h3 class="text-2xl font-bold section-title editable-text" contenteditable="false">Professional WORK</h3>
+                    <h3 class="text-2xl font-bold section-title editable-text" data-id="cat-title-prof" contenteditable="false">Professional WORK</h3>
                     <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                 </div>
             </div>
             <div id="professional-projects-container" class="grid grid-cols-1 gap-8 mt-6">
                 <div class="project-detail-card">
                     <div class="editable-container justify-end">
-                        <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" contenteditable="false">High-End Residential Estate Development</h4>
+                        <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="prof-proj1-title" contenteditable="false">High-End Residential Estate Development</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm text-gray-400 mb-1 editable-text" contenteditable="false">Year: 2024 | Firm: FoxLin Architects</p>
+                        <p class="text-sm text-gray-400 mb-1 editable-text" data-id="prof-proj1-year" contenteditable="false">Year: 2024 | Firm: FoxLin Architects</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-base leading-relaxed text-justify mb-4 editable-text" contenteditable="false">Assisted in the design development and construction documentation for a sprawling luxury residential estate, involving complex site grading and bespoke architectural details.</p>
+                        <p class="text-base leading-relaxed text-justify mb-4 editable-text" data-id="prof-proj1-desc" contenteditable="false">Assisted in the design development and construction documentation for a sprawling luxury residential estate, involving complex site grading and bespoke architectural details.</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm mb-2 editable-text" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Assistant Architect</p>
+                        <p class="text-sm mb-2 editable-text" data-id="prof-proj1-role" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Assistant Architect</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm mb-4 editable-text" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> Revit, V-Ray, Adobe Photoshop, AutoCAD</p>
+                        <p class="text-sm mb-4 editable-text" data-id="prof-proj1-tools" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> Revit, V-Ray, Adobe Photoshop, AutoCAD</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="image-gallery">
-                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Render" alt="Residential Estate Render">
+                        <figure class="image-editable-wrapper"><img data-id="prof-proj1-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Render" alt="Residential Estate Render">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false"></p>
+                                <p class="editable-text" data-id="prof-proj1-cap1" contenteditable="false"></p>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
-                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Detail" alt="Residential Estate Detail">
+                        <figure class="image-editable-wrapper"><img data-id="prof-proj1-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Detail" alt="Residential Estate Detail">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false"></p>
-                                <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fa fa-align-right"></i></button></div>
+                                <p class="editable-text" data-id="prof-proj1-cap2" contenteditable="false"></p>
+                                <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
-                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Model" alt="Residential Estate Model">
+                        <figure class="image-editable-wrapper"><img data-id="prof-proj1-img3" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Model" alt="Residential Estate Model">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false"></p>
+                                <p class="editable-text" data-id="prof-proj1-cap3" contenteditable="false"></p>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
@@ -881,36 +881,36 @@
                 </div>
                 <div class="project-detail-card">
                     <div class="editable-container justify-end">
-                        <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" contenteditable="false">Residential Remodel & Addition</h4>
+                        <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="prof-proj2-title" contenteditable="false">Residential Remodel & Addition</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm text-gray-400 mb-1 editable-text" contenteditable="false">Year: 2025 | Firm: Solid Architecture Inc.</p>
+                        <p class="text-sm text-gray-400 mb-1 editable-text" data-id="prof-proj2-year" contenteditable="false">Year: 2025 | Firm: Solid Architecture Inc.</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-base leading-relaxed text-justify mb-4 editable-text" contenteditable="false">Handled drafting for permit and construction documents for a single-family home remodel, including navigating the city's plan check and permit submission process from start to finish.</p>
+                        <p class="text-base leading-relaxed text-justify mb-4 editable-text" data-id="prof-proj2-desc" contenteditable="false">Handled drafting for permit and construction documents for a single-family home remodel, including navigating the city's plan check and permit submission process from start to finish.</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm mb-2 editable-text" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Junior Designer / Drafter</p>
+                        <p class="text-sm mb-2 editable-text" data-id="prof-proj2-role" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Junior Designer / Drafter</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm mb-4 editable-text" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> AutoCAD, Bluebeam, Adobe Illustrator</p>
+                        <p class="text-sm mb-4 editable-text" data-id="prof-proj2-tools" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> AutoCAD, Bluebeam, Adobe Illustrator</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="image-gallery">
-                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Remodel+Drawing" alt="Remodel Permit Drawing">
+                        <figure class="image-editable-wrapper"><img data-id="prof-proj2-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Remodel+Drawing" alt="Remodel Permit Drawing">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false"></p>
+                                <p class="editable-text" data-id="prof-proj2-cap1" contenteditable="false"></p>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
-                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Remodel+Plan" alt="Remodel Construction Plan">
+                        <figure class="image-editable-wrapper"><img data-id="prof-proj2-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Remodel+Plan" alt="Remodel Construction Plan">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false"></p>
+                                <p class="editable-text" data-id="prof-proj2-cap2" contenteditable="false"></p>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
@@ -919,46 +919,45 @@
                     <div class="add-image-area"><button class="add-image-btn hidden"><i class="fas fa-plus"></i></button></div>
                 </div>
             </div>
-
             <div class="project-category text-right">
                 <div class="editable-container justify-end">
-                    <h3 class="text-2xl font-bold section-title editable-text" contenteditable="false">Studio PROJECTS</h3>
+                    <h3 class="text-2xl font-bold section-title editable-text" data-id="cat-title-studio" contenteditable="false">Studio PROJECTS</h3>
                     <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                 </div>
             </div>
             <div id="studio-projects-container" class="grid grid-cols-1 gap-8 mt-6">
                 <div class="project-detail-card">
                     <div class="editable-container justify-end">
-                        <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" contenteditable="false">Urban Reimagination Center</h4>
+                        <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="studio-proj1-title" contenteditable="false">Urban Reimagination Center</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm text-gray-400 mb-1 editable-text" contenteditable="false">Year: 2023 | School: Cal Poly Pomona</p>
+                        <p class="text-sm text-gray-400 mb-1 editable-text" data-id="studio-proj1-year" contenteditable="false">Year: 2023 | School: Cal Poly Pomona</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-base leading-relaxed text-justify mb-4 editable-text" contenteditable="false">A conceptual urban design project focusing on sustainable community development and adaptive reuse strategies in a dense urban environment. This project explored innovative public spaces and mixed-use programming.</p>
+                        <p class="text-base leading-relaxed text-justify mb-4 editable-text" data-id="studio-proj1-desc" contenteditable="false">A conceptual urban design project focusing on sustainable community development and adaptive reuse strategies in a dense urban environment. This project explored innovative public spaces and mixed-use programming.</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm mb-2 editable-text" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Lead Designer, Researcher</p>
+                        <p class="text-sm mb-2 editable-text" data-id="studio-proj1-role" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Lead Designer, Researcher</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm mb-4 editable-text" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> Rhino, Grasshopper, Adobe Illustrator, AutoCAD</p>
+                        <p class="text-sm mb-4 editable-text" data-id="studio-proj1-tools" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> Rhino, Grasshopper, Adobe Illustrator, AutoCAD</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="image-gallery">
-                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+1+Render" alt="Studio Project 1 - Main Render">
+                        <figure class="image-editable-wrapper"><img data-id="studio-proj1-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+1+Render" alt="Studio Project 1 - Main Render">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false"></p>
+                                <p class="editable-text" data-id="studio-proj1-cap1" contenteditable="false"></p>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
-                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+1+Plan" alt="Studio Project 1 - Site Plan">
+                        <figure class="image-editable-wrapper"><img data-id="studio-proj1-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+1+Plan" alt="Studio Project 1 - Site Plan">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false"></p>
+                                <p class="editable-text" data-id="studio-proj1-cap2" contenteditable="false"></p>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
@@ -966,40 +965,39 @@
                     </div>
                     <div class="add-image-area"><button class="add-image-btn hidden"><i class="fas fa-plus"></i></button></div>
                 </div>
-
                 <!-- Duplicated Studio Project 1 -->
                 <div class="project-detail-card">
                     <div class="editable-container justify-end">
-                        <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" contenteditable="false">Sustainable Housing Development</h4>
+                        <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="studio-proj2-title" contenteditable="false">Sustainable Housing Development</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm text-gray-400 mb-1 editable-text" contenteditable="false">Year: 2024 | School: Cal Poly Pomona</p>
+                        <p class="text-sm text-gray-400 mb-1 editable-text" data-id="studio-proj2-year" contenteditable="false">Year: 2024 | School: Cal Poly Pomona</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-base leading-relaxed text-justify mb-4 editable-text" contenteditable="false">A study on developing eco-friendly housing solutions that integrate renewable energy, efficient material use, and community-focused design principles for urban settings.</p>
+                        <p class="text-base leading-relaxed text-justify mb-4 editable-text" data-id="studio-proj2-desc" contenteditable="false">A study on developing eco-friendly housing solutions that integrate renewable energy, efficient material use, and community-focused design principles for urban settings.</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm mb-2 editable-text" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Designer</p>
+                        <p class="text-sm mb-2 editable-text" data-id="studio-proj2-role" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Designer</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm mb-4 editable-text" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> Revit, V-Ray, Adobe Photoshop</p>
+                        <p class="text-sm mb-4 editable-text" data-id="studio-proj2-tools" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> Revit, V-Ray, Adobe Photoshop</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="image-gallery">
-                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+2+Render" alt="Studio Project 2 - Main Render">
+                        <figure class="image-editable-wrapper"><img data-id="studio-proj2-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+2+Render" alt="Studio Project 2 - Main Render">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false"></p>
+                                <p class="editable-text" data-id="studio-proj2-cap1" contenteditable="false"></p>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
-                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+2+Plan" alt="Studio Project 2 - Site Plan">
+                        <figure class="image-editable-wrapper"><img data-id="studio-proj2-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+2+Plan" alt="Studio Project 2 - Site Plan">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false"></p>
+                                <p class="editable-text" data-id="studio-proj2-cap2" contenteditable="false"></p>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
@@ -1007,40 +1005,39 @@
                     </div>
                     <div class="add-image-area"><button class="add-image-btn hidden"><i class="fas fa-plus"></i></button></div>
                 </div>
-
                 <!-- Duplicated Studio Project 2 -->
                 <div class="project-detail-card">
                     <div class="editable-container justify-end">
-                        <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" contenteditable="false">Community Hub Revitalization</h4>
+                        <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="studio-proj3-title" contenteditable="false">Community Hub Revitalization</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm text-gray-400 mb-1 editable-text" contenteditable="false">Year: 2022 | School: Cal Poly Pomona</p>
+                        <p class="text-sm text-gray-400 mb-1 editable-text" data-id="studio-proj3-year" contenteditable="false">Year: 2022 | School: Cal Poly Pomona</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-base leading-relaxed text-justify mb-4 editable-text" contenteditable="false">A project focused on converting an abandoned industrial site into a vibrant mixed-use community center, incorporating green spaces, public art, and flexible event areas.</p>
+                        <p class="text-base leading-relaxed text-justify mb-4 editable-text" data-id="studio-proj3-desc" contenteditable="false">A project focused on converting an abandoned industrial site into a vibrant mixed-use community center, incorporating green spaces, public art, and flexible event areas.</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm mb-2 editable-text" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Urban Planner, Designer</p>
+                        <p class="text-sm mb-2 editable-text" data-id="studio-proj3-role" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Urban Planner, Designer</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p class="text-sm mb-4 editable-text" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> AutoCAD, SketchUp, Lumion</p>
+                        <p class="text-sm mb-4 editable-text" data-id="studio-proj3-tools" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> AutoCAD, SketchUp, Lumion</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="image-gallery">
-                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+3+Render" alt="Studio Project 3 - Main Render">
+                        <figure class="image-editable-wrapper"><img data-id="studio-proj3-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+3+Render" alt="Studio Project 3 - Main Render">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false"></p>
+                                <p class="editable-text" data-id="studio-proj3-cap1" contenteditable="false"></p>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
-                        <figure class="image-editable-wrapper"><img src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+3+Plan" alt="Studio Project 3 - Site Plan">
+                        <figure class="image-editable-wrapper"><img data-id="studio-proj3-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+3+Plan" alt="Studio Project 3 - Site Plan">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false"></p>
+                                <p class="editable-text" data-id="studio-proj3-cap2" contenteditable="false"></p>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
@@ -1049,10 +1046,9 @@
                     <div class="add-image-area"><button class="add-image-btn hidden"><i class="fas fa-plus"></i></button></div>
                 </div>
             </div>
-
             <div class="project-category text-right">
                 <div class="editable-container justify-end">
-                    <h3 class="text-2xl font-bold section-title editable-text" contenteditable="false">Personal / Competitions</h3>
+                    <h3 class="text-2xl font-bold section-title editable-text" data-id="cat-title-personal" contenteditable="false">Personal/Competitions</h3>
                     <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                 </div>
             </div>
@@ -1060,36 +1056,36 @@
                 <!-- Project Card 1: Retaining Wall -->
                 <div class="project-detail-card">
                     <div class="editable-container justify-end">
-                        <h4 id="personal-project-1-title" class="text-xl font-bold text-cyan-300 mb-2 editable-text" contenteditable="false">Backyard Retaining Wall Landscaping</h4>
+                        <h4 id="personal-project-1-title" class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="personal-proj1-title" contenteditable="false">Backyard Retaining Wall Landscaping</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p id="personal-project-1-year" class="text-sm text-gray-400 mb-1 editable-text" contenteditable="false">Year: 2022 | Type: Personal Project</p>
+                        <p id="personal-project-1-year" class="text-sm text-gray-400 mb-1 editable-text" data-id="personal-proj1-year" contenteditable="false">Year: 2022 | Type: Personal Project</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p id="personal-project-1-desc" class="text-base leading-relaxed text-justify mb-4 editable-text" contenteditable="false">Designed and executed a complete backyard renovation, including a custom-built hillside retaining wall to create tiered garden beds. The project involved site grading, material selection, and hands-on construction of the wall and surrounding landscape features.</p>
+                        <p id="personal-project-1-desc" class="text-base leading-relaxed text-justify mb-4 editable-text" data-id="personal-proj1-desc" contenteditable="false">Designed and executed a complete backyard renovation, including a custom-built hillside retaining wall to create tiered garden beds. The project involved site grading, material selection, and hands-on construction of the wall and surrounding landscape features.</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p id="personal-project-1-role" class="text-sm mb-2 editable-text" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Designer & Builder</p>
+                        <p id="personal-project-1-role" class="text-sm mb-2 editable-text" data-id="personal-proj1-role" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Designer & Builder</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p id="personal-project-1-tools" class="text-sm mb-4 editable-text" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> SketchUp, Hand Tools, Power Tools</p>
+                        <p id="personal-project-1-tools" class="text-sm mb-4 editable-text" data-id="personal-proj1-tools" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> SketchUp, Hand Tools, Power Tools</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="image-gallery">
-                        <figure class="image-editable-wrapper"><img id="retaining-wall-img-1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Retaining+Wall+Before" alt="Retaining Wall Before">
+                        <figure class="image-editable-wrapper"><img id="retaining-wall-img-1" data-id="personal-proj1-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Retaining+Wall+Before" alt="Retaining Wall Before">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false" id="caption-retaining-wall-1"></p>
+                                <p class="editable-text" contenteditable="false" id="caption-retaining-wall-1" data-id="personal-proj1-cap1"></p>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
-                        <figure class="image-editable-wrapper"><img id="retaining-wall-img-2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Retaining+Wall+After" alt="Retaining Wall After">
+                        <figure class="image-editable-wrapper"><img id="retaining-wall-img-2" data-id="personal-proj1-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Retaining+Wall+After" alt="Retaining Wall After">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false" id="caption-retaining-wall-2"></p>
+                                <p class="editable-text" contenteditable="false" id="caption-retaining-wall-2" data-id="personal-proj1-cap2"></p>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
@@ -1100,36 +1096,36 @@
                 <!-- Project Card 2: Chicken Coop -->
                 <div class="project-detail-card">
                     <div class="editable-container justify-end">
-                        <h4 id="personal-project-2-title" class="text-xl font-bold text-cyan-300 mb-2 editable-text" contenteditable="false">Custom Chicken Coop Design & Build</h4>
+                        <h4 id="personal-project-2-title" class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="personal-proj2-title" contenteditable="false">Custom Chicken Coop Design & Build</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p id="personal-project-2-year" class="text-sm text-gray-400 mb-1 editable-text" contenteditable="false">Year: 2021 | Type: Personal Project</p>
+                        <p id="personal-project-2-year" class="text-sm text-gray-400 mb-1 editable-text" data-id="personal-proj2-year" contenteditable="false">Year: 2021 | Type: Personal Project</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p id="personal-project-2-desc" class="text-base leading-relaxed text-justify mb-4 editable-text" contenteditable="false">Designed and constructed a functional and aesthetically pleasing chicken coop from scratch. The project focused on using reclaimed materials and ensuring a safe, comfortable, and easy-to-clean environment for the chickens.</p>
+                        <p id="personal-project-2-desc" class="text-base leading-relaxed text-justify mb-4 editable-text" data-id="personal-proj2-desc" contenteditable="false">Designed and constructed a functional and aesthetically pleasing chicken coop from scratch. The project focused on using reclaimed materials and ensuring a safe, comfortable, and easy-to-clean environment for the chickens.</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="justify"><i class="fas fa-align-justify"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p id="personal-project-2-role" class="text-sm mb-2 editable-text" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Designer & Builder</p>
+                        <p id="personal-project-2-role" class="text-sm mb-2 editable-text" data-id="personal-proj2-role" contenteditable="false"><strong class="text-cyan-400">Role:</strong> Designer & Builder</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="editable-container justify-end">
-                        <p id="personal-project-2-tools" class="text-sm mb-4 editable-text" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> Woodworking Tools, Reclaimed Materials</p>
+                        <p id="personal-project-2-tools" class="text-sm mb-4 editable-text" data-id="personal-proj2-tools" contenteditable="false"><strong class="text-cyan-400">Tools Used:</strong> Woodworking Tools, Reclaimed Materials</p>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                     </div>
                     <div class="image-gallery">
-                        <figure class="image-editable-wrapper"><img id="chicken-coop-img-1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Coop+Design" alt="Chicken Coop Design">
+                        <figure class="image-editable-wrapper"><img id="chicken-coop-img-1" data-id="personal-proj2-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Coop+Design" alt="Chicken Coop Design">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false" id="caption-chicken-coop-1"></p>
+                                <p class="editable-text" contenteditable="false" id="caption-chicken-coop-1" data-id="personal-proj2-cap1"></p>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
-                        <figure class="image-editable-wrapper"><img id="chicken-coop-img-2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Finished+Coop" alt="Finished Chicken Coop">
+                        <figure class="image-editable-wrapper"><img id="chicken-coop-img-2" data-id="personal-proj2-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Finished+Coop" alt="Finished Chicken Coop">
                             <figcaption class="editable-container justify-center">
-                                <p class="editable-text" contenteditable="false" id="caption-chicken-coop-2"></p>
+                                <p class="editable-text" contenteditable="false" id="caption-chicken-coop-2" data-id="personal-proj2-cap2"></p>
                                 <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                             </figcaption>
                             <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
@@ -1146,19 +1142,19 @@
             <div class="card p-6 max-w-xl ml-auto text-right">
                 <div class="flex flex-col items-end space-y-3">
                     <div class="flex items-center text-base">
-                        <div class="editable-container justify-end"><span id="contact-phone" class="text-white editable-text text-right" contenteditable="false">(626) 466-5346</span>
+                        <div class="editable-container justify-end"><span id="contact-phone" class="text-white editable-text text-right" data-id="contact-phone" contenteditable="false">(626) 466-5346</span>
                             <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                         </div>
                         <i class="fas fa-phone-alt text-cyan-400 ml-4"></i>
                     </div>
                     <div class="flex items-center text-base">
-                        <div class="editable-container justify-end"><a id="contact-email" href="mailto:mha.cia92@gmail.com" class="text-white hover:underline editable-text text-right" contenteditable="false">mha.cia92@gmail.com</a>
+                        <div class="editable-container justify-end"><a id="contact-email" href="mailto:mha.cia92@gmail.com" class="text-white hover:underline editable-text text-right" data-id="contact-email" contenteditable="false">mha.cia92@gmail.com</a>
                             <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                         </div>
                         <i class="fas fa-envelope text-cyan-400 ml-4"></i>
                     </div>
                     <div class="flex items-center text-base">
-                        <div class="editable-container justify-end"><span id="contact-address" class="text-white editable-text text-right" contenteditable="false">La Puente, CA 91744</span>
+                        <div class="editable-container justify-end"><span id="contact-address" class="text-white editable-text text-right" data-id="contact-address" contenteditable="false">La Puente, CA 91744</span>
                             <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
                         </div>
                         <i class="fas fa-map-marker-alt text-cyan-400 ml-4"></i>
@@ -1166,7 +1162,6 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- Footer -->
@@ -1195,7 +1190,6 @@
             <button id="closeAuthModal" class="absolute top-3 right-3 text-white hover:text-cyan-400 text-2xl">
                 <i class="fas fa-times"></i>
             </button>
-
             <!-- Auth Form Content -->
             <div id="authFormContent">
                 <!-- Name Field (for Sign Up) -->
@@ -1214,12 +1208,10 @@
                 <div class="mb-6 hidden" id="confirmPasswordField">
                     <input type="password" id="authConfirmPassword" placeholder="Confirm Password" class="input-field">
                 </div>
-
                 <!-- Forgot Password Link -->
                 <div class="text-right mb-4">
                     <button id="forgotPasswordBtn" class="text-sm text-cyan-400 hover:underline">Forgot Password?</button>
                 </div>
-
                 <!-- Buttons: Sign In/Sign Up toggle and Submit -->
                 <div class="flex justify-end items-center space-x-3">
                     <button id="signInToggleBtn" class="auth-toggle-btn active" title="Sign In">
@@ -1260,18 +1252,15 @@
             getDocs
         } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-
         // --- Global State & Config ---
         let app, auth, db;
         let isAdmin = false;
         let activeModalAction = null;
         let isAppInitialized = false;
         let currentAuthTab = 'signIn';
-
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'portfolio-minhtetaung';
         const contentCollectionRef = () => collection(db, `artifacts/${appId}/public/data/page_content`);
         const userDocRef = (uid) => doc(db, "users", uid);
-
 
         // --- Firebase Initialization
         function initializeFirebase() {
@@ -1301,7 +1290,6 @@
             onAuthStateChanged(auth, async (user) => {
                 const signInIcon = document.getElementById('signInIcon');
                 const signOutBtn = document.getElementById('signOutBtn');
-
                 // Reset UI state
                 isAdmin = false;
                 document.body.classList.remove('admin-mode');
@@ -1309,12 +1297,11 @@
 
                 if (user) {
                     if (user.isAnonymous) {
-                        signInIcon.classList.add('hidden'); 
+                        signInIcon.classList.add('hidden');
                         signOutBtn.classList.add('hidden');
                     } else {
                         signInIcon.classList.add('hidden');
                         signOutBtn.classList.remove('hidden');
-
                         try {
                             const docSnap = await getDoc(userDocRef(user.uid));
                             if (docSnap.exists() && docSnap.data().role === 'admin') {
@@ -1332,7 +1319,6 @@
                         console.error("Anonymous sign-in failed:", error);
                     }
                 }
-
                 if (!isAppInitialized) {
                     isAppInitialized = true;
                     await loadContentFromFirestore();
@@ -1341,16 +1327,14 @@
             });
         }
 
-
         // --- Data Persistence (Firestore) ---
         async function loadContentFromFirestore() {
             try {
                 const querySnapshot = await getDocs(contentCollectionRef());
                 querySnapshot.forEach((docSnap) => {
-                    const elementId = docSnap.id;
+                    const dataId = docSnap.id;
                     const data = docSnap.data();
-                    const el = document.getElementById(elementId);
-
+                    const el = document.querySelector(`[data-id='${dataId}']`);
                     if (!el) return;
 
                     if (data.type === 'text') {
@@ -1366,10 +1350,10 @@
             }
         }
 
-        async function saveData(elementId, data) {
-            if (!isAdmin || !elementId) return;
+        async function saveData(dataId, data) {
+            if (!isAdmin || !dataId) return;
             try {
-                const itemDocRef = doc(db, `artifacts/${appId}/public/data/page_content`, elementId);
+                const itemDocRef = doc(db, `artifacts/${appId}/public/data/page_content/${dataId}`);
                 await setDoc(itemDocRef, data, {
                     merge: true
                 });
@@ -1379,10 +1363,10 @@
             }
         }
 
-        async function deleteData(elementId) {
-            if (!isAdmin || !elementId) return;
+        async function deleteData(dataId) {
+            if (!isAdmin || !dataId) return;
             try {
-                const itemDocRef = doc(db, `artifacts/${appId}/public/data/page_content`, elementId);
+                const itemDocRef = doc(db, `artifacts/${appId}/public/data/page_content/${dataId}`);
                 await deleteDoc(itemDocRef);
             } catch (e) {
                 console.error("Error deleting data: ", e);
@@ -1390,18 +1374,12 @@
             }
         }
 
-
-
         //--- UI & Event Listeners ---
         document.addEventListener('DOMContentLoaded', () => {
             initializeFirebase();
         });
 
-
         function initializeEventListeners() {
-            assignUniqueIDs();
-
-
             // --- Navigation Logic ---
             document.querySelectorAll('a.header-nav-link').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
@@ -1409,12 +1387,10 @@
                     document.querySelectorAll('a.header-nav-link').forEach(link => link.classList.remove('active'));
                     this.classList.add('active');
 
-
                     if (this.getAttribute('href') !== '#portfolio') {
                         document.getElementById('portfolio').classList.remove('hidden');
                         document.getElementById('detailed-portfolio').classList.add('hidden');
                     }
-
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth'
                     });
@@ -1423,11 +1399,9 @@
 
             const sections = document.querySelectorAll('section');
             const navLi = document.querySelectorAll('nav ul li a');
-
             window.addEventListener('scroll', () => {
-                let current = '';
+                let current = "";
                 const visibleSections = Array.from(sections).filter(sec => !sec.classList.contains('hidden'));
-
 
                 visibleSections.forEach(section => {
                     if (window.scrollY >= section.offsetTop - 100) {
@@ -1443,12 +1417,9 @@
                 });
             });
 
-
-
-            // --- Portfolio Toggling Logic ---
+            // --- Portfolio Toggling Logic
             const portfolioOverviewSection = document.getElementById('portfolio');
             const detailedPortfolioSection = document.getElementById('detailed-portfolio');
-
 
             document.getElementById('seeAllProjectsBtn').addEventListener('click', () => {
                 portfolioOverviewSection.classList.add('hidden');
@@ -1468,8 +1439,7 @@
                 });
             });
 
-
-            // --- Admin Login ---
+            // --- Admin Login
             let clickCount = 0;
             let clickTimer = null;
             document.getElementById('main-title').addEventListener('click', () => {
@@ -1486,8 +1456,7 @@
                 }
             });
 
-
-            //--- Sign In / Out Buttons ---
+            //--- Sign In / Out Buttons
             document.getElementById('signInIcon').addEventListener('click', () => {
                 showAuthModal();
             });
@@ -1503,10 +1472,9 @@
             });
 
 
-
-            // --- New Edit Logic ---
+            // --- New Edit Logic
             document.body.addEventListener('click', (e) => {
-                 if (!isAdmin) return;
+                if (!isAdmin) return;
 
                 const clickedOnControls = e.target.closest('.edit-delete-controls, .image-edit-delete-controls');
                 if (clickedOnControls) {
@@ -1518,9 +1486,9 @@
                 if (editableEl) {
                     // If we are clicking a new editable element, hide all other controls first
                     const controls = editableEl.closest('.editable-container, .image-editable-wrapper, .project-detail-card').querySelector('.edit-delete-controls, .image-edit-delete-controls, .add-image-btn');
-                    if(controls && controls.classList.contains('hidden')){
-                         hideAllControls(); 
-                         controls.classList.remove('hidden');
+                    if (controls && controls.classList.contains('hidden')) {
+                        hideAllControls();
+                        controls.classList.remove('hidden');
                     }
                 } else {
                     // If we clicked outside any editable area, hide everything
@@ -1529,12 +1497,10 @@
             });
 
 
-
             // --- Home page contact icon listeners --
             document.getElementById('homeEmailIcon').addEventListener('click', () => showMessageBox('mha.cia92@gmail.com'));
             document.getElementById('homePhoneIcon').addEventListener('click', () => showMessageBox('(626) 466-5346'));
             document.getElementById('homeLocationIcon').addEventListener('click', () => showMessageBox('La Puente, CA 91744'));
-
 
 
             // --- Attach handlers to all buttons ---
@@ -1546,19 +1512,20 @@
         function hideAllControls() {
             document.querySelectorAll('[contenteditable="true"]').forEach(el => {
                 el.setAttribute('contenteditable', 'false');
-                el.style.border = '';
-                el.style.padding = '';
-                 const controls = el.closest('.editable-container').querySelector('.edit-delete-controls');
-                 if(controls){
-                    controls.querySelector('.edit-btn').classList.remove('hidden');
-                    controls.querySelector('.save-btn').classList.add('hidden');
-                 }
+                el.style.border = "";
+                el.style.padding = "";
+                const container = el.closest('.editable-container');
+                if (container) {
+                    const controls = container.querySelector('.edit-delete-controls');
+                    if (controls) {
+                        controls.querySelector('.edit-btn').classList.remove('hidden');
+                        controls.querySelector('.save-btn').classList.add('hidden');
+                    }
+                }
             });
-
             document.querySelectorAll('.edit-delete-controls, .image-edit-delete-controls, .add-image-btn').forEach(c => {
                 if (!c.classList.contains('hidden')) c.classList.add('hidden');
             });
-
         }
 
 
@@ -1572,35 +1539,11 @@
             document.querySelectorAll('.add-image-btn').forEach(b => b.addEventListener('click', handleAddImageButton));
         }
 
-        function assignUniqueIDs() {
-            document.querySelectorAll('.editable-text:not([id]), .image-editable-wrapper img:not([id])').forEach((el, index) => {
-                if (el.id) return;
-                const parentSection = el.closest('section');
-                const parentCard = el.closest('.card, .project-detail-card, .photo-container');
-                let base = parentSection?.id || 'gen';
-
-                if (parentCard) {
-                    base = parentCard.id || parentCard.className.split(' ')[0];
-                }
-
-                let suffix = el.tagName.toLowerCase();
-                if (el.classList.contains('editable-text')) {
-                    suffix = el.textContent.trim().substring(0, 10).replace(/\s+/g, '-') || 'text';
-                } else if (el.alt) {
-                    suffix = el.alt.substring(0, 10).replace(/\s+/g, '-') || 'img';
-                }
-
-                el.id = `${base}-${suffix}-${index}`;
-            });
-        }
-
-
         // --- Event Handlers (Updated to use new saveData/deleteData) ---
         function handleEditButton(e) {
             e.stopPropagation();
             const container = e.target.closest('.editable-container');
             const editableText = container.querySelector('.editable-text');
-            
             editableText.setAttribute('contenteditable', 'true');
             editableText.style.border = '1px solid #00bcd4';
             editableText.style.padding = '2px';
@@ -1610,27 +1553,24 @@
             controls.querySelector('.edit-btn').classList.add('hidden');
             controls.querySelector('.save-btn').classList.remove('hidden');
         }
-        
-        function handleSaveButton(e){
+
+        function handleSaveButton(e) {
             e.stopPropagation();
             const container = e.target.closest('.editable-container');
             const editableText = container.querySelector('.editable-text');
-
+            const dataId = editableText.dataset.id;
             const currentData = {
                 type: 'text',
                 content: editableText.innerHTML,
                 align: editableText.style.textAlign || null
             };
-            saveData(editableText.id, currentData);
-            
+            saveData(dataId, currentData);
             editableText.setAttribute('contenteditable', 'false');
-            editableText.style.border = '';
+            editableText.style.border = "";
             editableText.style.padding = '';
-
             const controls = container.querySelector('.edit-delete-controls');
             controls.querySelector('.edit-btn').classList.remove('hidden');
             controls.querySelector('.save-btn').classList.add('hidden');
-            
             hideAllControls();
         }
 
@@ -1638,7 +1578,7 @@
             e.stopPropagation();
             const editableText = e.target.closest('.editable-container').querySelector('.editable-text');
             editableText.innerHTML = '';
-            deleteData(editableText.id);
+            deleteData(editableText.dataset.id);
             hideAllControls();
         }
 
@@ -1647,12 +1587,12 @@
             const editableText = e.target.closest('.editable-container').querySelector('.editable-text');
             const alignType = e.currentTarget.dataset.align;
             editableText.style.textAlign = alignType;
-             const currentData = {
+            const currentData = {
                 type: 'text',
                 content: editableText.innerHTML,
                 align: alignType
             };
-            saveData(editableText.id, currentData);
+            saveData(editableText.dataset.id, currentData);
         }
 
         function handleEditImageButton(e) {
@@ -1661,7 +1601,7 @@
             showUrlPrompt((url) => {
                 if (url && (url.startsWith('http') || url.startsWith('https'))) {
                     img.src = url;
-                    saveData(img.id, {
+                    saveData(img.dataset.id, {
                         type: 'image',
                         src: url
                     });
@@ -1669,31 +1609,30 @@
                     showMessageBox("Invalid URL. Please provide a full link starting with http or https.");
                 }
                 hideMessageBox();
+                hideAllControls();
             });
-            hideAllControls();
         }
 
         function handleDeleteImageButton(e) {
             e.stopPropagation();
             const imageWrapper = e.target.closest('.image-editable-wrapper');
             const img = imageWrapper.querySelector('img');
+            const dataId = img.dataset.id;
 
-            if (img.id.includes('-work-image') || img.id === 'profilePhoto' || img.id.includes('studio-projects-image') || img.id.includes('personal-work-image')) {
+            if (dataId === 'profilePhoto' || dataId.includes('-work-image') || dataId.includes('studio-projects-image')) {
                 let placeholderText = img.alt.replace(' Image', "").replace(' - Profile Photo', "");
                 const newSrc = `https://placehold.co/600x400/2e3a51/00bcd4?text=${encodeURIComponent(placeholderText)}`;
                 img.src = newSrc;
-                saveData(img.id, {
+                saveData(dataId, {
                     type: 'image',
                     src: newSrc
                 });
             } else {
-                const imgId = img.id;
                 const figcaption = imageWrapper.querySelector('figcaption .editable-text');
-                const captionId = figcaption ? figcaption.id : null;
+                const captionId = figcaption ? figcaption.dataset.id : null;
 
-                if (imgId) deleteData(imgId);
+                if (dataId) deleteData(dataId);
                 if (captionId) deleteData(captionId);
-
                 imageWrapper.closest('figure').remove();
             }
             hideAllControls();
@@ -1709,9 +1648,9 @@
                     const newFigure = document.createElement('figure');
                     newFigure.className = 'image-editable-wrapper';
                     newFigure.innerHTML = `
-                        <img src="${url}" alt="Uploaded Image" class="w-full h-auto rounded-lg" id="${imgId}">
+                        <img src="${url}" data-id="${imgId}" alt="Uploaded Image" class="w-full h-auto rounded-lg">
                         <figcaption class="editable-container justify-center">
-                            <p class="editable-text" contenteditable="false" id="${captionId}"></p>
+                            <p class="editable-text" data-id="${captionId}" contenteditable="false"></p>
                             <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button><button class="align-btn" data-align="center"><i class="fas fa-align-center"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button></div>
                         </figcaption>
                         <div class="image-edit-delete-controls hidden"><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
@@ -1720,10 +1659,10 @@
                     saveData(imgId, {
                         type: 'image',
                         src: url
-                    }); 
+                    });
                     saveData(captionId, {
                         type: 'text',
-                        content: ''
+                        content: ""
                     });
                     attachListenersToElements();
                 } else if (url) {
@@ -1732,7 +1671,6 @@
                 hideMessageBox();
             });
         }
-
 
 
         // --- Modal/Message Box Logic ---
@@ -1760,13 +1698,12 @@
             const messageBox = document.getElementById('messageBox');
             const pinInput = messageBox.querySelector('#pinInput');
             messageBox.querySelector('#messageText').textContent = "Enter PIN";
-            pinInput.value = '';
+            pinInput.value = "";
             pinInput.classList.remove('hidden');
             messageBox.classList.remove('hidden');
             pinInput.focus();
 
             const CORRECT_PIN = "1234";
-
             activeModalAction = () => {
                 if (pinInput.value === CORRECT_PIN) {
                     onPinCorrect();
@@ -1786,42 +1723,35 @@
             urlInput.classList.remove('hidden');
             messageBox.classList.remove('hidden');
             urlInput.focus();
+
             activeModalAction = () => {
                 callback(urlInput.value);
             };
             messageBox.addEventListener('click', hideMessageBoxOnClickOutside);
         }
 
-
         document.addEventListener('keydown', (e) => {
             const messageBox = document.getElementById('messageBox');
             if (messageBox.classList.contains('hidden') || e.key !== 'Enter') return;
-
-
             if (document.activeElement.id === 'pinInput' || document.activeElement.id === 'urlInput') {
                 e.preventDefault();
                 if (activeModalAction) activeModalAction();
             }
         });
 
-
-
-        // --- Image Preview Logic ---
+        // --- Image Preview Logic
         function initializeImagePreviewListeners() {
             const modal = document.getElementById('imagePreviewModal');
             const modalImg = document.getElementById('imagePreviewImg');
-
 
             document.getElementById('detailed-portfolio').addEventListener('click', (e) => {
                 if (e.target.tagName === 'IMG' && e.target.closest('.image-gallery')) {
                     if (isAdmin && e.target.closest('.image-editable-wrapper')) return;
 
-
                     modalImg.src = e.target.src;
                     modal.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
                 }
             });
-
 
             modal.addEventListener('click', () => {
                 modal.classList.add('hidden', 'opacity-0', 'pointer-events-none');
@@ -1829,15 +1759,13 @@
             });
         }
 
-
-
         // --- Auth Modal Logic ---
         function showAuthModal() {
             document.getElementById('authModal').classList.remove('hidden');
-            document.getElementById('authEmail').value = '';
-            document.getElementById('authPassword').value = '';
-            document.getElementById('authName').value = '';
-            document.getElementById('authConfirmPassword').value = '';
+            document.getElementById('authEmail').value = "";
+            document.getElementById('authPassword').value = "";
+            document.getElementById('authName').value = "";
+            document.getElementById('authConfirmPassword').value = "";
             setActiveAuthTab('signIn');
         }
 
@@ -1852,7 +1780,6 @@
             const nameField = document.getElementById('nameField');
             const confirmPasswordField = document.getElementById('confirmPasswordField');
             const forgotPasswordBtn = document.getElementById('forgotPasswordBtn').parentElement;
-
 
             if (tabName === 'signIn') {
                 signInToggleBtn.classList.add('active');
@@ -1873,20 +1800,18 @@
             document.getElementById('closeAuthModal').addEventListener('click', hideAuthModal);
             document.getElementById('signInToggleBtn').addEventListener('click', () => setActiveAuthTab('signIn'));
             document.getElementById('signUpToggleBtn').addEventListener('click', () => setActiveAuthTab('signUp'));
-
             document.getElementById('authModal').addEventListener('click', (e) => {
                 if (e.target.id === 'authModal') {
                     hideAuthModal();
                 }
             });
-            
+
             document.getElementById('forgotPasswordBtn').addEventListener('click', async () => {
                 const email = document.getElementById('authEmail').value;
                 if (!email) {
                     showMessageBox("Please enter your email address to reset your password.");
                     return;
                 }
-
                 try {
                     await sendPasswordResetEmail(auth, email);
                     hideAuthModal();
@@ -1894,7 +1819,7 @@
                 } catch (error) {
                     console.error("Password Reset Error:", error);
                     let errorMessage = "Failed to send password reset email.";
-                     if (error.code === 'auth/invalid-email') {
+                    if (error.code === 'auth/invalid-email') {
                         errorMessage = "The email address is not valid.";
                     } else if (error.code === 'auth/user-not-found') {
                         errorMessage = "No user found with this email address.";
@@ -1906,8 +1831,8 @@
             document.getElementById('authSubmitBtn').addEventListener('click', async () => {
                 const email = document.getElementById('authEmail').value;
                 const password = document.getElementById('authPassword').value;
-                let name = '';
-                let confirmPassword = '';
+                let name = "";
+                let confirmPassword = "";
 
                 if (currentAuthTab === 'signUp') {
                     name = document.getElementById('authName').value;
@@ -1918,7 +1843,6 @@
                     showMessageBox("Please enter both email and password.");
                     return;
                 }
-
                 if (currentAuthTab === 'signUp' && password !== confirmPassword) {
                     showMessageBox("Passwords do not match!");
                     return;
@@ -1928,19 +1852,16 @@
                     try {
                         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                         const user = userCredential.user;
-
                         if (name) {
                             await updateProfile(user, {
                                 displayName: name
                             });
                         }
-
                         const docRef = userDocRef(user.uid);
                         await setDoc(docRef, {
                             email: user.email,
                             role: 'viewer'
                         });
-
                         showMessageBox("Sign Up Successful! Welcome " + (name || email) + "!");
                         hideAuthModal();
                     } catch (error) {
