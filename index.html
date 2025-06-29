@@ -1617,27 +1617,28 @@
             const img = imageWrapper.querySelector('img');
             const imgId = img.dataset.id || img.id;
             
-            if (img.id === 'profilePhoto') {
-                const newSrc = `https://i.imgur.com/nzKKXiE.jpeg`;
-                img.src = newSrc;
-                saveData(img.id, { type: 'image', src: newSrc });
-            } else if (imgId.startsWith('img_')) {
-                 // It's a dynamically added image, remove it completely
+            if (imgId.startsWith('img_')) {
+                // Dynamically added image: remove from DOM and DB
                 const figcaption = imageWrapper.querySelector('figcaption .editable-text');
                 const captionId = figcaption ? figcaption.dataset.id : null;
-
                 if (imgId) deleteData(imgId);
                 if (captionId) deleteData(captionId);
                 imageWrapper.closest('figure').remove();
             } else {
-                // It's a built-in portfolio image, revert to placeholder and save
-                let placeholderText = img.alt.replace(' Image', "");
-                const newSrc = `https://placehold.co/600x400/2e3a51/00bcd4?text=${encodeURIComponent(placeholderText)}`;
+                // Built-in image: revert to default/placeholder and save
+                let newSrc;
+                if (img.id === 'profilePhoto') {
+                    newSrc = 'https://i.imgur.com/nzKKXiE.jpeg';
+                } else {
+                    let placeholderText = img.alt.replace(' Image', '');
+                    newSrc = `https://placehold.co/600x400/2e3a51/00bcd4?text=${encodeURIComponent(placeholderText)}`;
+                }
                 img.src = newSrc;
                 saveData(imgId, { type: 'image', src: newSrc });
             }
-             hideAllControls();
+            hideAllControls();
         }
+
 
         function handleAddImageButton(e) {
             e.stopPropagation();
