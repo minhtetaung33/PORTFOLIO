@@ -1621,20 +1621,20 @@
                 const newSrc = `https://i.imgur.com/nzKKXiE.jpeg`;
                 img.src = newSrc;
                 saveData(img.id, { type: 'image', src: newSrc });
-            } else if (imgId) {
-                 // It's a placeholder-able portfolio image, revert it and save
-                let placeholderText = img.alt.replace(' Image', "");
-                const newSrc = `https://placehold.co/600x400/2e3a51/00bcd4?text=${encodeURIComponent(placeholderText)}`;
-                img.src = newSrc;
-                saveData(imgId, { type: 'image', src: newSrc });
-            } else {
-                // It's a dynamically added image, remove it completely
+            } else if (imgId.startsWith('img_')) {
+                 // It's a dynamically added image, remove it completely
                 const figcaption = imageWrapper.querySelector('figcaption .editable-text');
                 const captionId = figcaption ? figcaption.dataset.id : null;
 
                 if (imgId) deleteData(imgId);
                 if (captionId) deleteData(captionId);
                 imageWrapper.closest('figure').remove();
+            } else {
+                // It's a built-in portfolio image, revert to placeholder and save
+                let placeholderText = img.alt.replace(' Image', "");
+                const newSrc = `https://placehold.co/600x400/2e3a51/00bcd4?text=${encodeURIComponent(placeholderText)}`;
+                img.src = newSrc;
+                saveData(imgId, { type: 'image', src: newSrc });
             }
              hideAllControls();
         }
