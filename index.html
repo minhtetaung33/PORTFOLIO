@@ -523,7 +523,6 @@
                     <figure class="image-editable-wrapper w-full h-full rounded-full">
                         <img id="profilePhoto" src="https://i.imgur.com/nzKKXiE.jpeg" alt="Min Htet Aung - Profile Photo" class="rounded-full w-56 h-56 md:w-72 md:h-72 object-cover border-4 border-white">
                         <div class="image-edit-delete-controls hidden">
-                            <button class="add-image-btn"><i class="fas fa-plus"></i></button>
                             <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
                             <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
                         </div>
@@ -742,7 +741,7 @@
                     <figure class="image-editable-wrapper w-full h-full">
                         <img id="professional-work-image" data-id="professional-work-image" src="https://placehold.co/600x400/2e3a51/00bcd4?text=Professional+Work" alt="Professional Work Image" class="w-full h-full object-cover" />
                         <div class="image-edit-delete-controls hidden">
-                             <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                            <button class="add-image-btn"><i class="fas fa-plus"></i></button>
                             <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
                             <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
                         </div>
@@ -756,7 +755,7 @@
                     <figure class="image-editable-wrapper w-full h-full">
                         <img id="studio-projects-image" data-id="studio-projects-image" src="https://placehold.co/600x400/2e3a51/00bcd4?text=Studio+Projects" alt="Studio Projects Image" class="w-full h-full object-cover" />
                         <div class="image-edit-delete-controls hidden">
-                            <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                           <button class="add-image-btn"><i class="fas fa-plus"></i></button>
                             <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
                             <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
                         </div>
@@ -801,7 +800,7 @@
                 </div>
             </div>
             <div id="professional-projects-container" class="grid grid-cols-1 gap-8 mt-6">
-                <div class="project-detail-card">
+                <div class="project-detail-card" data-project-id="prof-proj1">
                     <div class="editable-container justify-end">
                         <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="prof-proj1-title" contenteditable="false">High-End Residential Estate Development</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
@@ -824,23 +823,17 @@
                     </div>
                     <div class="image-gallery">
                         <figure class="image-editable-wrapper"><img id="prof-proj1-img1" data-id="prof-proj1-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Render" alt="Residential Estate Render">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="prof-proj1-img2" data-id="prof-proj1-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Detail" alt="Residential Estate Detail">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="prof-proj1-img3" data-id="prof-proj1-img3" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Estate+Model" alt="Residential Estate Model">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                     </div>
                 </div>
-                <div class="project-detail-card">
+                <div class="project-detail-card" data-project-id="prof-proj2">
                     <div class="editable-container justify-end">
                         <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="prof-proj2-title" contenteditable="false">Residential Remodel & Addition</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
@@ -863,14 +856,10 @@
                     </div>
                     <div class="image-gallery">
                         <figure class="image-editable-wrapper"><img id="prof-proj2-img1" data-id="prof-proj2-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Remodel+Drawing" alt="Remodel Permit Drawing">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="prof-proj2-img2" data-id="prof-proj2-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Remodel+Plan" alt="Remodel Construction Plan">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                     </div>
                 </div>
@@ -882,7 +871,7 @@
                 </div>
             </div>
             <div id="studio-projects-container" class="grid grid-cols-1 gap-8 mt-6">
-                <div class="project-detail-card">
+                <div class="project-detail-card" data-project-id="studio-proj1">
                     <div class="editable-container justify-end">
                         <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="studio-proj1-title" contenteditable="false">Urban Reimagination Center</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
@@ -905,18 +894,14 @@
                     </div>
                     <div class="image-gallery">
                         <figure class="image-editable-wrapper"><img id="studio-proj1-img1" data-id="studio-proj1-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+1+Render" alt="Studio Project 1 - Main Render">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="studio-proj1-img2" data-id="studio-proj1-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+1+Plan" alt="Studio Project 1 - Site Plan">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                     </div>
                 </div>
-                <div class="project-detail-card">
+                <div class="project-detail-card" data-project-id="studio-proj2">
                     <div class="editable-container justify-end">
                         <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="studio-proj2-title" contenteditable="false">Sustainable Housing Development</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
@@ -939,18 +924,14 @@
                     </div>
                     <div class="image-gallery">
                         <figure class="image-editable-wrapper"><img id="studio-proj2-img1" data-id="studio-proj2-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+2+Render" alt="Studio Project 2 - Main Render">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="studio-proj2-img2" data-id="studio-proj2-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+2+Plan" alt="Studio Project 2 - Site Plan">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                     </div>
                 </div>
-                <div class="project-detail-card">
+                <div class="project-detail-card" data-project-id="studio-proj3">
                     <div class="editable-container justify-end">
                         <h4 class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="studio-proj3-title" contenteditable="false">Community Hub Revitalization</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
@@ -973,14 +954,10 @@
                     </div>
                     <div class="image-gallery">
                         <figure class="image-editable-wrapper"><img id="studio-proj3-img1" data-id="studio-proj3-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+3+Render" alt="Studio Project 3 - Main Render">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="studio-proj3-img2" data-id="studio-proj3-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Studio+Project+3+Plan" alt="Studio Project 3 - Site Plan">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                     </div>
                 </div>
@@ -993,7 +970,7 @@
             </div>
             <div id="personal-projects-container" class="grid grid-cols-1 gap-8 mt-6">
                 <!-- Project Card 1: Retaining Wall -->
-                <div class="project-detail-card">
+                <div class="project-detail-card" data-project-id="personal-proj1">
                     <div class="editable-container justify-end">
                         <h4 id="personal-project-1-title" class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="personal-proj1-title" contenteditable="false">Backyard Retaining Wall Landscaping</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
@@ -1016,19 +993,15 @@
                     </div>
                     <div class="image-gallery">
                         <figure class="image-editable-wrapper"><img id="personal-proj1-img1" data-id="personal-proj1-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Retaining+Wall+Before" alt="Retaining Wall Before">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="personal-proj1-img2" data-id="personal-proj1-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Retaining+Wall+After" alt="Retaining Wall After">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                     </div>
                 </div>
                 <!-- Project Card 2: Chicken Coop -->
-                <div class="project-detail-card">
+                <div class="project-detail-card" data-project-id="personal-proj2">
                     <div class="editable-container justify-end">
                         <h4 id="personal-project-2-title" class="text-xl font-bold text-cyan-300 mb-2 editable-text" data-id="personal-proj2-title" contenteditable="false">Custom Chicken Coop Design & Build</h4>
                         <div class="edit-delete-controls hidden"><button class="edit-btn"><i class="fas fa-edit"></i></button><button class="save-btn hidden"><i class="fas fa-save"></i></button><button class="delete-btn"><i class="fas fa-trash-alt"></i></button><button class="align-btn" data-align="right"><i class="fas fa-align-right"></i></button><button class="align-btn" data-align="left"><i class="fas fa-align-left"></i></button></div>
@@ -1051,14 +1024,10 @@
                     </div>
                     <div class="image-gallery">
                         <figure class="image-editable-wrapper"><img id="personal-proj2-img1" data-id="personal-proj2-img1" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Coop+Design" alt="Chicken Coop Design">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                         <figure class="image-editable-wrapper"><img id="personal-proj2-img2" data-id="personal-proj2-img2" src="https://placehold.co/800x600/3a4a61/00bcd4?text=Finished+Coop" alt="Finished Chicken Coop">
-                            <div class="image-edit-delete-controls hidden">
-                                <button class="add-image-btn"><i class="fas fa-plus"></i></button>
-                                <button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
+                            <div class="image-edit-delete-controls hidden"><button class="add-image-btn"><i class="fas fa-plus"></i></button><button class="edit-image-btn"><i class="fas fa-edit"></i></button><button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button></div>
                         </figure>
                     </div>
                 </div>
@@ -1273,6 +1242,24 @@
                         } else if (data.type === 'image' && el.tagName === 'IMG') {
                             el.src = data.src;
                         }
+                    } else if (data.type === 'added_image') {
+                         const projectCard = document.querySelector(`[data-project-id="${data.projectId}"]`);
+                         if(projectCard){
+                            const imageGallery = projectCard.querySelector('.image-gallery');
+                            if(imageGallery){
+                                const newFigure = document.createElement('figure');
+                                newFigure.className = 'image-editable-wrapper';
+                                newFigure.innerHTML = `
+                                    <img src="${data.src}" alt="Uploaded Image" class="w-full h-auto rounded-lg" data-id="${docSnap.id}">
+                                    <div class="image-edit-delete-controls hidden">
+                                       <button class="add-image-btn"><i class="fas fa-plus"></i></button>
+                                       <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
+                                       <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
+                                    </div>
+                                `;
+                                imageGallery.appendChild(newFigure);
+                            }
+                         }
                     }
                 });
 
@@ -1568,29 +1555,30 @@
             }
             hideAllControls();
         }
-
+        
         function handleAddImageButton(e) {
             e.stopPropagation();
-            const currentFigure = e.target.closest('figure.image-editable-wrapper');
-            
+            const imageGallery = e.target.closest('.image-gallery');
+            const projectCard = e.target.closest('.project-detail-card');
+            const projectId = projectCard.dataset.projectId;
+
             showUrlPrompt((url) => {
                 if (url && (url.startsWith('http://') || url.startsWith('https://'))) {
                     const imgId = `img_${Date.now()}`;
                     const newFigure = document.createElement('figure');
                     newFigure.className = 'image-editable-wrapper';
                     newFigure.innerHTML = `
-                        <img src="${url}" alt="Uploaded Image" class="w-full h-auto rounded-lg" id="${imgId}" data-id="${imgId}">
+                        <img src="${url}" alt="Uploaded Image" class="w-full h-auto rounded-lg" data-id="${imgId}">
                         <div class="image-edit-delete-controls hidden">
                            <button class="add-image-btn"><i class="fas fa-plus"></i></button>
                            <button class="edit-image-btn"><i class="fas fa-edit"></i></button>
                            <button class="delete-image-btn"><i class="fas fa-trash-alt"></i></button>
                         </div>
                     `;
-                    
-                    currentFigure.parentNode.insertBefore(newFigure, currentFigure.nextSibling);
+                    imageGallery.appendChild(newFigure);
 
-                    saveData(imgId, { type: 'image', src: url });
-                    attachListenersToElements(); // Re-attach listeners to include the new buttons
+                    saveData(imgId, { type: 'added_image', src: url, projectId: projectId });
+                    attachListenersToElements();
                 } else if (url) {
                     showMessageBox("Invalid URL. Please provide a full link starting with http or https.");
                 }
