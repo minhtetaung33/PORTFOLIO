@@ -1660,6 +1660,8 @@
         function initializeImagePreviewListeners() {
             const modal = document.getElementById('imagePreviewModal');
             const modalImg = document.getElementById('imagePreviewImg');
+
+            // Listener for detailed project images
             document.getElementById('detailed-portfolio').addEventListener('click', (e) => {
                 if (e.target.tagName === 'IMG' && e.target.closest('.image-gallery')) {
                     if (isAdmin && e.target.closest('.image-editable-wrapper')) return; // Don't show modal in admin mode on click
@@ -1667,6 +1669,16 @@
                     modal.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
                 }
             });
+
+            // Listener for main portfolio overview images
+            document.getElementById('portfolio').addEventListener('click', (e) => {
+                if (e.target.tagName === 'IMG' && e.target.closest('.featured-project-card')) {
+                    if (isAdmin && e.target.closest('.image-editable-wrapper')) return;
+                    modalImg.src = e.target.src;
+                    modal.classList.remove('hidden', 'opacity-0', 'pointer-events-none');
+                }
+            });
+
             modal.addEventListener('click', () => {
                 modal.classList.add('hidden', 'opacity-0', 'pointer-events-none');
                 modalImg.src = "";
